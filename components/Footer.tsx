@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Logo from "./Logo";
+import Rich from "./Rich";
 import { Instagram, LinkedIn, Stars } from "./Icons";
 import { useI18n } from "./I18n";
 import { contact } from "@/lib/data";
@@ -18,7 +19,7 @@ export default function Footer() {
           <div>
             <Logo light />
             <div className="review-badge">
-              <Stars /> {contact.reviewCount}+ {dict.common.reviewsOnGoogle}
+              <Stars /> <span><Rich text={dict.common.ratingLine} /></span>
             </div>
             <p className="footer-note">{dict.common.googlePartner}</p>
           </div>

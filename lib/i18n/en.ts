@@ -25,7 +25,7 @@ const en: Dict = {
   common: {
     freeAnalysis: "Request a free analysis",
     viewWork: "View our work",
-    reviewsOnGoogle: "reviews on Google",
+    ratingLine: "**5/5** · Rated excellent",
     requestQuote: "Request a quote",
     askQuote: "Request a quote",
     call: "Call",
@@ -34,6 +34,10 @@ const en: Dict = {
     googlePartner: "Official Google Partner",
     founderRole: "Founder of Dutch Branders",
     stars: "5 stars",
+    sending: "Sending…",
+    formError: "Something went wrong while sending. Please try again or email us at info@dutchbranders.nl.",
+    services: "Services",
+    message: "Message",
   },
 
   footer: {
@@ -59,7 +63,7 @@ const en: Dict = {
     title: "No sales pitch, just\nreal *client experiences*.",
     sub: "What business owners say about working with Dutch Branders.",
     googleReview: "Google review",
-    note: "**Google** rating: **{rating}** out of 5, based on **{count}** reviews",
+    note: "Average **5/5** · based on public reviews",
   },
 
   leadForm: {
@@ -108,7 +112,6 @@ const en: Dict = {
       longTitle: "Web design",
       short: "Fast, mobile-friendly websites that match your brand and turn visitors into customers.",
       long: "Websites that fit your organisation, load fast and turn visitors into customers.",
-      price: "From €399",
       chips: ["WordPress", "Custom", "Webshops"],
       bullets: [
         "Unique design in your brand style",
@@ -123,7 +126,6 @@ const en: Dict = {
       longTitle: "SEO",
       short: "Rank higher in Google's organic results, with an approach we've been refining for years.",
       long: "Get found better in Google's organic results, with an approach we've been refining for years.",
-      price: "[Price]",
       chips: [],
       bullets: ["Analysis of your current findability", "Keyword research for your audience", "Technical and content optimisation", "Reporting on your rankings"],
     },
@@ -133,7 +135,6 @@ const en: Dict = {
       longTitle: "Google Ads",
       short: "Advertise locally, nationally or internationally with more results per euro.",
       long: "Advertise locally, nationally or internationally. As an official Google Partner we get more out of every budget.",
-      price: "[Price]",
       chips: [],
       bullets: ["Campaigns tailored to your goals", "Ad copy and keywords", "Continuous optimisation for results", "Clear monthly reporting"],
     },
@@ -143,7 +144,6 @@ const en: Dict = {
       longTitle: "Analytics",
       short: "Know where your visitors come from and what they bring you. Measuring is knowing.",
       long: "A measurable website: know which ads work, where visitors come from and what they bring in.",
-      price: "[Price]",
       chips: [],
       bullets: ["Google Analytics set up correctly", "Conversion and goal tracking", "Clear dashboards", "Data-driven advice"],
     },
@@ -153,7 +153,6 @@ const en: Dict = {
       longTitle: "Branding & design",
       short: "Logo, flyers and business cards, so you're recognisable online and offline.",
       long: "A strong look and feel, online and offline. From logo to business card.",
-      price: "[Price]",
       chips: [],
       bullets: ["Logo design", "Complete brand identity", "Flyers and brochures", "Business cards"],
     },
@@ -255,7 +254,7 @@ const en: Dict = {
   faqs: [
     {
       q: "How much does a website cost?",
-      a: "A professional website starts at €399. If you also want to be found better or advertise, you choose a more extensive package. After a free analysis you'll receive a tailored quote.",
+      a: "That depends on what you need: a website, or findability and advertising too. After a free analysis you'll receive a clear, tailored quote, with no obligation.",
     },
     {
       q: "How long until my website is live?",
@@ -281,12 +280,12 @@ const en: Dict = {
     lead: "Website, findability and advertising working together towards one goal: more customers for your business. We're the online marketing department you didn't have yet.",
     scribble: "We worked on these.\nIs your business next?",
     heroTags: {
-      fj: "Website · SEO",
-      tz: "Website · Google Ads",
-      fhs: "Website · Webshop",
-      jb: "Website · Google Ads",
-      ex: "Website · Campaigns",
-      kb: "Website · Branding",
+      denk: "Political party · Website",
+      vanstalen: "Car garage · Website",
+      dentville: "Dental practice · Website",
+      bkp: "Workwear · Webshop",
+      atak: "Timber construction · Website",
+      firerocket: "Patio heaters · Webshop",
     },
     logosLabel: "Businesses that went before you",
     motto: {
@@ -294,7 +293,7 @@ const en: Dict = {
       title: "Growing\nonline together\nto *success*.",
       text: "We believe real growth happens when you work together. Not a distant agency, but a team that thinks along, takes action and keeps improving. Your growth is our measure of success.",
       button: "Read our story",
-      rating: "We're rated **{rating}** on Google from **{count}** reviews",
+      rating: "**5/5** · Clients rate us as excellent",
       stat1: { value: "100+", label: "businesses helped" },
       stat2: { value: "Avg. 50%", label: "higher return" },
     },
@@ -317,7 +316,7 @@ const en: Dict = {
       inboxTitle: "Ready for more enquiries?",
       inboxText: "Your business is running, but there's more to gain online. We'll help you take that next step.",
       bannerTitle: "Just a website, or fully taken care of?",
-      bannerText: "Start with a website from €399 and expand with SEO, Google Ads and more whenever you're ready.",
+      bannerText: "Start with a website and expand with SEO, Google Ads and more whenever you're ready. You always get a tailored quote first.",
       bannerButton: "View the packages",
     },
     servicesBlock: {
@@ -393,13 +392,11 @@ const en: Dict = {
       basic: {
         name: "Website",
         text: "For business owners who want to get online professionally and be found quickly.",
-        price: "from €399",
         items: ["Free analysis upfront", "Website in your brand style", "Mobile-friendly and fast", "Basic SEO setup", "Easy to edit in WordPress", "Live in [x] weeks"],
       },
       full: {
         name: "Complete",
         text: "For businesses that want to scale up and hand everything over.",
-        price: "[Price]",
         items: ["Strategy and growth plan", "Custom website", "Ongoing SEO", "Google Ads management", "Analytics and reporting", "Branding and print"],
       },
       roi: {
@@ -586,7 +583,6 @@ const en: Dict = {
     name: "[Course name]",
     desc: "[Short description of the course and who it's for.]",
     goals: ["[Learning goal 1]", "[Learning goal 2]", "[Learning goal 3]"],
-    price: "[€ Price]",
     info: "[Duration · Location or online]",
     enroll: "Enrol",
     custom: {
@@ -594,6 +590,30 @@ const en: Dict = {
       title: "Training for\nyour *whole*\n*team*?",
       text: "We also give courses on location, tailored to your business and your team's knowledge.",
       button: "Get in touch",
+    },
+    quote: {
+      label: "No-obligation quote",
+      title: "Request a\n*quote* for\nyour course.",
+      text: "Let us know which course interests you and how many people want to join. You'll receive a tailored quote within one business day, with no obligation.",
+      tagline: "Honest advice. 100% no obligation.",
+      course: "Which course?",
+      courseOptions: ["Course 01 · [Course name]", "Course 02 · [Course name]", "Course 03 · [Course name]", "Tailor-made training for my team"],
+      participants: "Number of participants",
+      format: "Where would you like to take the course?",
+      formatOptions: ["At your company", "At our location", "Online", "Not sure yet"],
+      name: "Name",
+      namePh: "Your name",
+      company: "Company",
+      companyPh: "Company name",
+      email: "Email",
+      emailPh: "name@company.com",
+      phone: "Phone",
+      phonePh: "+31 6 12345678",
+      message: "Comments (optional)",
+      messagePh: "For example: preferred period or your team's level of knowledge",
+      submit: "Request a free quote",
+      thanks: "Thanks for your request!",
+      thanksText: "We'll send you a tailored quote within one business day.",
     },
   },
 

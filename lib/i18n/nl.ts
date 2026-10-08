@@ -26,7 +26,7 @@ const nl = {
   common: {
     freeAnalysis: "Gratis analyse aanvragen",
     viewWork: "Bekijk ons werk",
-    reviewsOnGoogle: "reviews op Google",
+    ratingLine: "**5/5** · Uitstekend beoordeeld",
     requestQuote: "Offerte aanvragen",
     askQuote: "Vraag een offerte aan",
     call: "Bel",
@@ -35,6 +35,10 @@ const nl = {
     googlePartner: "Officiële Google Partner",
     founderRole: "Oprichter Dutch Branders",
     stars: "5 sterren",
+    sending: "Versturen…",
+    formError: "Er ging iets mis bij het versturen. Probeer het opnieuw of mail ons op info@dutchbranders.nl.",
+    services: "Diensten",
+    message: "Bericht",
   },
 
   footer: {
@@ -60,7 +64,7 @@ const nl = {
     title: "Geen verkooppraatje, maar\n*ervaringen* van klanten.",
     sub: "Wat ondernemers zeggen over samenwerken met Dutch Branders.",
     googleReview: "Google review",
-    note: "**Google** waardering: **{rating}** van 5, gebaseerd op **{count}** recensies",
+    note: "Gemiddeld **5/5** · op basis van publieke reviews",
   },
 
   leadForm: {
@@ -109,7 +113,6 @@ const nl = {
       longTitle: "Webdesign",
       short: "Snelle, mobielvriendelijke websites die bij je merk passen en bezoekers omzetten in klanten.",
       long: "Websites die bij je organisatie passen, snel laden en bezoekers omzetten in klanten.",
-      price: "Vanaf €399",
       chips: ["WordPress", "Maatwerk", "Webshops"],
       bullets: [
         "Uniek ontwerp in jouw huisstijl",
@@ -124,7 +127,6 @@ const nl = {
       longTitle: "SEO",
       short: "Hoger in de organische resultaten van Google, met een aanpak die we al jaren verfijnen.",
       long: "Beter gevonden worden in de organische resultaten van Google, met een aanpak die we al jaren verfijnen.",
-      price: "[Prijs]",
       chips: [],
       bullets: [
         "Analyse van je huidige vindbaarheid",
@@ -139,7 +141,6 @@ const nl = {
       longTitle: "Google Ads",
       short: "Lokaal, landelijk of internationaal adverteren met meer resultaat per euro.",
       long: "Lokaal, landelijk of internationaal adverteren. Als officiële Google Partner halen we meer uit elk budget.",
-      price: "[Prijs]",
       chips: [],
       bullets: [
         "Campagnes afgestemd op jouw doelen",
@@ -154,7 +155,6 @@ const nl = {
       longTitle: "Statistieken",
       short: "Weet waar je bezoekers vandaan komen en wat ze je opleveren. Meten is weten.",
       long: "Een meetbare website: weet welke advertenties werken, waar bezoekers vandaan komen en wat ze opleveren.",
-      price: "[Prijs]",
       chips: [],
       bullets: ["Google Analytics correct ingericht", "Conversies en doelen meten", "Overzichtelijke dashboards", "Advies op basis van data"],
     },
@@ -164,7 +164,6 @@ const nl = {
       longTitle: "Huisstijl & ontwerp",
       short: "Logo, flyers en visitekaartjes, zodat je online én offline herkenbaar bent.",
       long: "Een sterke uitstraling, online én offline. Van logo tot visitekaartje.",
-      price: "[Prijs]",
       chips: [],
       bullets: ["Logo-ontwerp", "Complete huisstijl", "Flyers en folders", "Visitekaartjes"],
     },
@@ -268,7 +267,7 @@ const nl = {
   faqs: [
     {
       q: "Wat kost een website?",
-      a: "Een professionele website begint bij €399. Wil je ook beter gevonden worden of adverteren, dan kies je een uitgebreider pakket. Na een gratis analyse krijg je een offerte op maat.",
+      a: "Dat hangt af van wat je nodig hebt: een website, of ook vindbaarheid en advertenties. Na een gratis analyse krijg je een heldere offerte op maat, helemaal vrijblijvend.",
     },
     {
       q: "Hoe lang duurt het voordat mijn website online staat?",
@@ -294,12 +293,12 @@ const nl = {
     lead: "Website, vindbaarheid en advertenties die samenwerken aan één doel: meer klanten voor jouw bedrijf. Wij zijn de online marketingafdeling die je nog niet had.",
     scribble: "Hier werkten we aan.\nJouw bedrijf de volgende?",
     heroTags: {
-      fj: "Website · SEO",
-      tz: "Website · Google Ads",
-      fhs: "Website · Webshop",
-      jb: "Website · Google Ads",
-      ex: "Website · Campagnes",
-      kb: "Website · Huisstijl",
+      denk: "Politieke partij · Website",
+      vanstalen: "Autobedrijf · Website",
+      dentville: "Tandartspraktijk · Website",
+      bkp: "Bedrijfskleding · Webshop",
+      atak: "Houtbouw · Website",
+      firerocket: "Terrasverwarming · Webshop",
     },
     logosLabel: "Ondernemers die ons voorgingen",
     motto: {
@@ -307,7 +306,7 @@ const nl = {
       title: "Samen online\ngroeien naar\n*succes*.",
       text: "Wij geloven dat groei pas echt ontstaat als je samenwerkt. Geen bureau op afstand, maar een team dat meedenkt, doorpakt en blijft verbeteren. Jouw groei is onze maatstaf voor succes.",
       button: "Lees ons verhaal",
-      rating: "Wij krijgen een **{rating}** op Google uit **{count}** beoordelingen",
+      rating: "**5/5** · Klanten beoordelen ons als uitstekend",
       stat1: { value: "100+", label: "ondernemers geholpen" },
       stat2: { value: "Gem. 50%", label: "meer rendement" },
     },
@@ -330,7 +329,7 @@ const nl = {
       inboxTitle: "Klaar voor meer aanvragen?",
       inboxText: "Je bedrijf draait, maar online zit er meer in. Wij helpen je die volgende stap te zetten.",
       bannerTitle: "Alleen een website, of alles uit handen?",
-      bannerText: "Begin met een website vanaf €399 en breid uit met SEO, Google Ads en meer wanneer je er klaar voor bent.",
+      bannerText: "Begin met een website en breid uit met SEO, Google Ads en meer wanneer je er klaar voor bent. Je krijgt altijd eerst een offerte op maat.",
       bannerButton: "Bekijk de pakketten",
     },
     servicesBlock: {
@@ -406,13 +405,11 @@ const nl = {
       basic: {
         name: "Website",
         text: "Voor ondernemers die snel professioneel online willen staan en gevonden willen worden.",
-        price: "v.a. €399",
         items: ["Gratis analyse vooraf", "Website in jouw huisstijl", "Mobielvriendelijk en snel", "Basis SEO-inrichting", "Zelf aan te passen in WordPress", "Online in [x] weken"],
       },
       full: {
         name: "Compleet",
         text: "Voor bedrijven die willen opschalen en alles uit handen willen geven.",
-        price: "[Prijs]",
         items: ["Strategie en groeiplan", "Website op maat", "Doorlopende SEO", "Google Ads-beheer", "Statistieken en rapportage", "Huisstijl en drukwerk"],
       },
       roi: {
@@ -599,7 +596,6 @@ const nl = {
     name: "[Cursusnaam]",
     desc: "[Korte beschrijving van de cursus en voor wie hij is.]",
     goals: ["[Leerdoel 1]", "[Leerdoel 2]", "[Leerdoel 3]"],
-    price: "[€ Prijs]",
     info: "[Duur · Locatie of online]",
     enroll: "Inschrijven",
     custom: {
@@ -607,6 +603,30 @@ const nl = {
       title: "Een training\nvoor je *hele*\n*team*?",
       text: "We geven cursussen ook op locatie, afgestemd op jouw bedrijf en de kennis van je team.",
       button: "Neem contact op",
+    },
+    quote: {
+      label: "Vrijblijvende offerte",
+      title: "Vraag een\n*offerte* aan\nvoor je cursus.",
+      text: "Laat weten welke cursus je interesseert en met hoeveel mensen je wilt deelnemen. Je krijgt binnen één werkdag een offerte op maat, helemaal vrijblijvend.",
+      tagline: "Eerlijk advies. 100% vrijblijvend.",
+      course: "Welke cursus?",
+      courseOptions: ["Cursus 01 · [Cursusnaam]", "Cursus 02 · [Cursusnaam]", "Cursus 03 · [Cursusnaam]", "Training op maat voor mijn team"],
+      participants: "Aantal deelnemers",
+      format: "Waar wil je de cursus volgen?",
+      formatOptions: ["Bij jullie", "Op onze locatie", "Online", "Weet ik nog niet"],
+      name: "Naam",
+      namePh: "Je naam",
+      company: "Bedrijf",
+      companyPh: "Bedrijfsnaam",
+      email: "E-mail",
+      emailPh: "naam@bedrijf.nl",
+      phone: "Telefoon",
+      phonePh: "06 12345678",
+      message: "Opmerkingen (optioneel)",
+      messagePh: "Bijvoorbeeld: gewenste periode of kennisniveau van je team",
+      submit: "Vraag vrijblijvend een offerte aan",
+      thanks: "Bedankt voor je aanvraag!",
+      thanksText: "We sturen je binnen één werkdag een offerte op maat.",
     },
   },
 

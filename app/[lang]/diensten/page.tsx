@@ -55,7 +55,6 @@ export default async function Diensten({ params }: PageProps<"/[lang]/diensten">
                   <h2>{s.longTitle}</h2>
                   <p>{s.long}</p>
                   <div className="price-line">
-                    <strong>{s.price}</strong>
                     <Link href={L("/contact")} className={"btn btn-sm " + (theme === "orange" ? "btn-navy" : "btn-orange")}>
                       {d.common.requestQuote} <ArrowUpRight />
                     </Link>

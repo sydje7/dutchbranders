@@ -7,10 +7,8 @@ export const contact = {
   address: "Handelweg 12H, 1521 NH Wormerveer",
   mapsUrl: "https://www.google.com/maps/place/data=!4m2!3m1!1s0x47c5e3b905585495:0x7416b8aba98b1faf",
   kvk: "81843895",
-  btw: "[nummer]",
+  btw: "NL864519886B01",
   founder: "Burak Demirozcan",
-  reviewCount: "[aantal]",
-  rating: "[x]",
 };
 
 /* Taalonafhankelijke projectgegevens; teksten staan in lib/i18n */

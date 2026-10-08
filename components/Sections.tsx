@@ -30,7 +30,7 @@ export function CtaBand({ dict, lang }: { dict: Dict; lang: Locale }) {
 export function ReviewLine({ dict }: { dict: Dict }) {
   return (
     <span className="review-line">
-      <Stars /> {contact.reviewCount}+ {dict.common.reviewsOnGoogle}
+      <Stars /> <span><Rich text={dict.common.ratingLine} /></span>
     </span>
   );
 }
@@ -70,7 +70,7 @@ export function ReviewsSection({ dict }: { dict: Dict }) {
           })}
         </div>
         <p className="reviews-note">
-          <Rich text={t.note} vars={{ rating: contact.rating, count: contact.reviewCount }} />
+          <Rich text={t.note} />
         </p>
       </div>
     </section>

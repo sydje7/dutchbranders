@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
   return {
     title: { default: d.meta.title, template: "%s | Dutch Branders" },
     description: d.meta.description,
+    icons: { icon: "/favicon.svg" },
   };
 }
 

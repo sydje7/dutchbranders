@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Carousel from "@/components/ProjectCarousel";
@@ -14,14 +15,15 @@ import { ArrowUpRight, CheckCircle, Crown, ScribbleArrow, Shield, Star, Stars } 
 import { contact } from "@/lib/data";
 import { getDict, hasLocale, localePath } from "@/lib/i18n";
 
-const heroProjects: { id: MockId; name: string }[] = [
-  { id: "fj", name: "Fietsen Jansen" },
-  { id: "tz", name: "Tandartspraktijk Zuid" },
-  { id: "fhs", name: "Studio FHS" },
-  { id: "jb", name: "Jurist & Bewind" },
-  { id: "ex", name: "Extremos Amsterdam" },
-  { id: "kb", name: "Koffiebar Noord" },
-];
+/* Echte klantwebsites (screenshots in /public/klanten) */
+const heroProjects = [
+  { id: "denk", name: "DENK", url: "https://denk.nl/" },
+  { id: "vanstalen", name: "Autobedrijf van Stalen", url: "https://autobedrijfvanstalen.nl/" },
+  { id: "dentville", name: "Dentville", url: "https://dentville.nl/" },
+  { id: "bkp", name: "BedrijfskledingPlaza", url: "https://bedrijfskledingplaza.nl/" },
+  { id: "atak", name: "Atak Houtbouw", url: "https://www.atakhoutbouw.nl/" },
+  { id: "firerocket", name: "FireRocket", url: "https://firerocket.nl/" },
+] as const;
 
 const inboxTimes = [
   { t: "10:42", star: false },
@@ -73,13 +75,13 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           }
         >
           {heroProjects.map((p) => (
-            <Link href={L("/werk")} className="project-card" key={p.id}>
-              <Mock id={p.id} />
+            <a href={p.url} target="_blank" rel="noopener noreferrer" className="project-card" key={p.id}>
+              <Image src={`/klanten/${p.id}.jpg`} alt={`Website van ${p.name}`} fill sizes="370px" className="shot" />
               <div className="caption">
                 <strong>{p.name}</strong>
                 <span>{h.heroTags[p.id]}</span>
               </div>
-            </Link>
+            </a>
           ))}
         </Carousel>
 
@@ -106,7 +108,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               <div className="stat-box white">
                 <Stars />
                 <div>
-                  <Rich text={h.motto.rating} vars={{ rating: contact.rating, count: contact.reviewCount }} />
+                  <Rich text={h.motto.rating} />
                 </div>
               </div>
               {[h.motto.stat1, h.motto.stat2].map((s) => (
@@ -318,7 +320,6 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               <span className="ribbon">{h.pricing.popular}</span>
               <h3>{h.pricing.basic.name}</h3>
               <p>{h.pricing.basic.text}</p>
-              <div className="price">{h.pricing.basic.price}</div>
               <ul className="price-list">
                 {h.pricing.basic.items.map((x) => (
                   <li key={x}>
@@ -334,7 +335,6 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             <div className="price-card">
               <h3>{h.pricing.full.name}</h3>
               <p>{h.pricing.full.text}</p>
-              <div className="price">{h.pricing.full.price}</div>
               <ul className="price-list">
                 {h.pricing.full.items.map((x) => (
                   <li key={x}>

@@ -2,23 +2,45 @@
 
 import { useState } from "react";
 import { useI18n } from "./I18n";
+import { submitRequest } from "@/lib/submit";
 
 const steps = 3;
 
 /* Formulier in 3 stappen (33% → 66% → 100%) */
 export default function LeadForm({ dark = false }: { dark?: boolean }) {
-  const t = useI18n().dict.leadForm;
+  const { lang, dict } = useI18n();
+  const t = dict.leadForm;
   const [step, setStep] = useState(1);
   const [done, setDone] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState(false);
+  const [fax, setFax] = useState("");
   const [data, setData] = useState({ company: "", website: "", name: "", email: "", phone: "", goal: "" });
 
   const set = (k: keyof typeof data) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setData({ ...data, [k]: e.target.value });
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (step < steps) setStep(step + 1);
-    else setDone(true); // TODO: koppel aan e-mail/CRM (bijv. via een API route)
+    if (step < steps) return setStep(step + 1);
+    setBusy(true);
+    setError(false);
+    const ok = await submitRequest({
+      type: "analyse",
+      lang,
+      name: data.name,
+      email: data.email,
+      fax,
+      fields: [
+        [t.company, data.company],
+        [t.website, data.website],
+        [t.phone, data.phone],
+        [t.goal, data.goal],
+      ],
+    });
+    setBusy(false);
+    if (ok) setDone(true);
+    else setError(true);
   };
 
   const pct = done ? 100 : [33, 66, 100][step - 1];
@@ -40,6 +62,7 @@ export default function LeadForm({ dark = false }: { dark?: boolean }) {
         </div>
       ) : (
         <>
+          <input className="hp" tabIndex={-1} autoComplete="off" aria-hidden name="fax" value={fax} onChange={(e) => setFax(e.target.value)} />
           {step === 1 && (
             <>
               <label className="field">
@@ -80,14 +103,15 @@ export default function LeadForm({ dark = false }: { dark?: boolean }) {
               <textarea className="input" placeholder={t.goalPh} value={data.goal} onChange={set("goal")} />
             </label>
           )}
+          {error && <p className="form-error" role="alert">{dict.common.formError}</p>}
           <div className="form-actions">
             {step > 1 && (
-              <button type="button" className={"btn " + (dark ? "btn-outline-light" : "btn-outline")} onClick={() => setStep(step - 1)}>
+              <button type="button" className={"btn " + (dark ? "btn-outline-light" : "btn-outline")} onClick={() => setStep(step - 1)} disabled={busy}>
                 {t.back}
               </button>
             )}
-            <button type="submit" className={"btn " + (dark ? "btn-orange" : "btn-navy")}>
-              {step < steps ? t.next : t.submit}
+            <button type="submit" className={"btn " + (dark ? "btn-orange" : "btn-navy")} disabled={busy}>
+              {busy ? dict.common.sending : step < steps ? t.next : t.submit}
             </button>
           </div>
         </>

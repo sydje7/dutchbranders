@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import Rich from "@/components/Rich";
-import { CtaBand } from "@/components/Sections";
+import CourseQuoteForm from "@/components/CourseQuoteForm";
+import { Avatar, looks } from "@/components/Avatar";
+import { contact } from "@/lib/data";
 import { ArrowRight, ArrowUpRight, Check } from "@/components/Icons";
-import { getDict, hasLocale, localePath } from "@/lib/i18n";
+import { getDict, hasLocale } from "@/lib/i18n";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/cursussen">): Promise<Metadata> {
   const { lang } = await params;
@@ -16,9 +17,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/cursussen"
 export default async function Cursussen({ params }: PageProps<"/[lang]/cursussen">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
-  const d = getDict(lang);
-  const t = d.coursesPage;
-  const L = (p: string) => localePath(lang, p);
+  const t = getDict(lang).coursesPage;
 
   return (
     <>
@@ -54,11 +53,10 @@ export default async function Cursussen({ params }: PageProps<"/[lang]/cursussen
                   </li>
                 ))}
               </ul>
-              <div className="c-price">{t.price}</div>
               <small>{t.info}</small>
-              <Link href={L("/contact")} className="btn btn-orange btn-sm">
+              <a href="#offerte" className="btn btn-orange btn-sm">
                 {t.enroll} <ArrowUpRight />
-              </Link>
+              </a>
             </article>
           ))}
         </div>
@@ -76,14 +74,35 @@ export default async function Cursussen({ params }: PageProps<"/[lang]/cursussen
           </div>
           <div className="maatwerk-box">
             <p>{t.custom.text}</p>
-            <Link href={L("/contact")} className="btn btn-navy btn-sm">
+            <a href="#offerte" className="btn btn-navy btn-sm">
               {t.custom.button} <ArrowUpRight />
-            </Link>
+            </a>
           </div>
         </div>
       </section>
 
-      <CtaBand dict={d} lang={lang} />
+      <section className="lead-section" id="offerte" style={{ scrollMarginTop: 60 }}>
+        <div className="container lead-grid">
+          <div>
+            <span className="label">{t.quote.label}</span>
+            <h2 className="h1">
+              <Rich text={t.quote.title} />
+            </h2>
+            <p className="body">{t.quote.text}</p>
+            <div className="contact-person">
+              <Avatar look={looks.founder} />
+              <div>
+                <strong>{contact.founder}</strong>
+                <br />
+                <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                <br />
+                <a href={contact.phoneHref}>{contact.phone}</a>
+              </div>
+            </div>
+          </div>
+          <CourseQuoteForm />
+        </div>
+      </section>
     </>
   );
 }
