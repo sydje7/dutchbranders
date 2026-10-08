@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Carousel from "@/components/ProjectCarousel";
@@ -76,7 +75,8 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         >
           {heroProjects.map((p) => (
             <a href={p.url} target="_blank" rel="noopener noreferrer" className="project-card" key={p.id}>
-              <Image src={`/klanten/${p.id}.jpg`} alt={`Website van ${p.name}`} fill sizes="370px" className="shot" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={`/klanten/${p.id}.jpg`} alt={`Website van ${p.name}`} loading="lazy" decoding="async" className="shot" />
               <div className="caption">
                 <strong>{p.name}</strong>
                 <span>{h.heroTags[p.id]}</span>

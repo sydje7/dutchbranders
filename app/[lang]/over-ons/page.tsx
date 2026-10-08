@@ -165,6 +165,7 @@ export default async function OverOns({ params }: PageProps<"/[lang]/over-ons">)
               key={p.slug}
               p={p}
               t={d.projects[p.slug as keyof typeof d.projects]}
+              labels={d.workPage}
               style={{ flex: "0 0 min(370px, 82vw)", scrollSnapAlign: "start" }}
             />
           ))}
@@ -191,7 +192,7 @@ export default async function OverOns({ params }: PageProps<"/[lang]/over-ons">)
         </div>
       </section>
 
-      <ReviewsSection dict={d} />
+      <ReviewsSection dict={d} lang={lang} />
       <CtaBand dict={d} lang={lang} />
     </>
   );

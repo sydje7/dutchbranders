@@ -49,7 +49,7 @@ export default async function Werk({ params }: PageProps<"/[lang]/werk">) {
             <WorkGrid />
           </div>
         </section>
-        <ReviewsSection dict={d} />
+        <ReviewsSection dict={d} lang={lang} />
       </div>
 
       <CtaBand dict={d} lang={lang} />

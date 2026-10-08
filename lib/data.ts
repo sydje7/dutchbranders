@@ -1,5 +1,3 @@
-import type { MockId } from "@/components/Mockups";
-
 export const contact = {
   phone: "085 06 08 154",
   phoneHref: "tel:+31850608154",
@@ -11,25 +9,30 @@ export const contact = {
   founder: "Burak Demirozcan",
 };
 
-/* Taalonafhankelijke projectgegevens; teksten staan in lib/i18n */
-export const projects: { slug: string; name: string; mock: MockId }[] = [
-  { slug: "jurist-bewind", name: "Jurist & Bewind BV", mock: "jb" },
-  { slug: "studio-fhs", name: "Studio FHS", mock: "fhs" },
-  { slug: "extremos", name: "Extremos Amsterdam", mock: "ex" },
-  { slug: "koffiebar-noord", name: "Koffiebar Noord", mock: "kb" },
-  { slug: "fietsen-jansen", name: "Fietsen Jansen", mock: "fj" },
-  { slug: "tandartspraktijk-zuid", name: "Tandartspraktijk Zuid", mock: "tz" },
+/* Projecten op de Werk-pagina en Over ons (screenshots in /public/klanten); teksten staan in lib/i18n */
+export const projects: { slug: string; name: string; url: string; image?: string }[] = [
+  { slug: "enka", name: "Enka Keukens", url: "https://enkakeukens.nl/", image: `/klanten/enka.jpg` },
+  { slug: "nextsleep", name: "Next Sleep", url: "https://nextsleep.nl/", image: `/klanten/nextsleep.jpg` },
+  { slug: "denk", name: "DENK", url: "https://denk.nl/", image: `/klanten/denk.jpg` },
+  { slug: "cnk", name: "CNK Clinic", url: "https://cnkclinic.nl/", image: `/klanten/cnk.jpg` },
+  { slug: "atak", name: "Atak Houtbouw", url: "https://www.atakhoutbouw.nl/", image: `/klanten/atak.jpg` },
+  { slug: "vanstalen", name: "Autobedrijf van Stalen", url: "https://autobedrijfvanstalen.nl/", image: `/klanten/vanstalen.jpg` },
+  { slug: "wagentransport", name: "Wagentransport", url: "https://wagentransport.nl/", image: `/klanten/wagentransport.jpg` },
+  { slug: "firerocket", name: "FireRocket", url: "https://firerocket.nl/", image: `/klanten/firerocket.jpg` },
+  { slug: "bkp", name: "BedrijfskledingPlaza", url: "https://bedrijfskledingplaza.nl/", image: `/klanten/bkp.jpg` },
+  { slug: "shadow", name: "Shadow Security", url: "https://shadow-security.nl/", image: `/klanten/shadow.jpg` },
+  { slug: "village", name: "Salon The Village", url: "https://salonthevillage.com/", image: `/klanten/village.jpg` },
+  { slug: "lust109", name: "Lust109", url: "https://lust109.nl/", image: `/klanten/lust109.jpg` },
+  { slug: "ultra", name: "Ultra Group", url: "https://ultragroup.nl/", image: `/klanten/ultra.jpg` },
+  { slug: "dentville", name: "Dentville", url: "https://dentville.nl/", image: `/klanten/dentville.jpg` },
 ];
 
 /*
- * Reviews. LET OP: reviews met `voorbeeld: true` zijn voorbeeldteksten.
- * Vervang ze (tekst + datum in lib/i18n/nl.ts en en.ts) door echte Google-reviews vóór livegang.
+ * Echte Google-reviews van Dutch Branders.
+ * Voeg per review toe: naam (zoals op Google), datum (JJJJ-MM-DD), sterren en de tekst letterlijk zoals op Google.
+ * Zolang deze lijst leeg is, toont de site alleen de 5/5-beoordeling.
  */
-export const reviews = [
-  { ini: "JB", color: "#7b74b0", name: "Jurist & Bewind BV" },
-  { ini: "SF", color: "#c9a094", name: "Studio FHS" },
-  { ini: "EA", color: "#df7c86", name: "Extremos Amsterdam" },
-  { ini: "KN", color: "#8a6a55", name: "Koffiebar Noord", voorbeeld: true },
-  { ini: "FJ", color: "#3a9a5d", name: "Fietsen Jansen", voorbeeld: true },
-  { ini: "TZ", color: "#2d8fcb", name: "Tandartspraktijk Zuid", voorbeeld: true },
-] as const;
+export const reviews: { name: string; date: string; stars: number; text: string }[] = [];
+
+export const googleReviewsUrl =
+  "https://www.google.com/maps/place/data=!4m2!3m1!1s0x47c5e3b905585495:0x7416b8aba98b1faf";

@@ -63,6 +63,8 @@ const en: Dict = {
     title: "No sales pitch, just\nreal *client experiences*.",
     sub: "What business owners say about working with Dutch Branders.",
     googleReview: "Google review",
+    readAll: "Read all reviews on Google",
+    empty: "Average rating from our clients",
     note: "Average **5/5** · based on public reviews",
   },
 
@@ -159,97 +161,24 @@ const en: Dict = {
   ],
 
   projects: {
-    "jurist-bewind": {
-      sector: "Financial guardianship",
-      branche: "Business services",
-      services: ["Google Ads", "Website"],
-      metrics: [
-        { value: "Position 1", label: "in Google" },
-        { value: "Lower", label: "ad budget" },
-        { value: "1+ year", label: "stable results" },
-      ],
-    },
-    "studio-fhs": {
-      sector: "Beauty salon",
-      branche: "Beauty & wellness",
-      services: ["Website", "Webshop"],
-      metrics: [
-        { value: "[+x%]", label: "more bookings" },
-        { value: "Webshop", label: "online sales" },
-        { value: "Email", label: "marketing" },
-      ],
-    },
-    extremos: {
-      sector: "Dance school in Amsterdam",
-      branche: "Sports & leisure",
-      services: ["Website", "Campaigns"],
-      metrics: [
-        { value: "[+x]", label: "new students" },
-        { value: "Campaigns", label: "online" },
-        { value: "Website", label: "custom-built" },
-      ],
-    },
-    "koffiebar-noord": {
-      sector: "Coffee bar",
-      branche: "Hospitality",
-      services: ["Website", "Branding"],
-      metrics: [
-        { value: "[+x%]", label: "online orders" },
-        { value: "Branding", label: "refreshed" },
-      ],
-    },
-    "fietsen-jansen": {
-      sector: "Bike shop",
-      branche: "Retail",
-      services: ["Website", "SEO"],
-      metrics: [
-        { value: "[+x%]", label: "more visitors" },
-        { value: "SEO", label: "found locally" },
-      ],
-    },
-    "tandartspraktijk-zuid": {
-      sector: "Dental practice",
-      branche: "Healthcare",
-      services: ["Website", "Google Ads"],
-      metrics: [
-        { value: "[+x]", label: "new patients" },
-        { value: "Google Ads", label: "local" },
-      ],
-    },
+    enka: { sector: "Kitchen store in Utrecht", branche: "Home & interior", services: ["Website"] },
+    nextsleep: { sector: "Bed specialist in Utrecht", branche: "Home & interior", services: ["Website"] },
+    denk: { sector: "Political party", branche: "Politics & society", services: ["Website"] },
+    cnk: { sector: "Medical aesthetics clinic", branche: "Health & beauty", services: ["Website"] },
+    atak: { sector: "Custom timber construction", branche: "Construction & trades", services: ["Website"] },
+    vanstalen: { sector: "Car garage in Zaandam", branche: "Automotive, transport & logistics", services: ["Website"] },
+    wagentransport: { sector: "Car and motorbike transport", branche: "Automotive, transport & logistics", services: ["Website"] },
+    firerocket: { sector: "Pellet patio heaters", branche: "Online stores", services: ["Webshop"] },
+    bkp: { sector: "Printed workwear", branche: "Online stores", services: ["Webshop"] },
+    shadow: { sector: "Security company", branche: "Business services", services: ["Website"] },
+    village: { sector: "Hair salon in Amsterdam", branche: "Health & beauty", services: ["Website"] },
+    lust109: { sector: "Restaurant on the Oudegracht", branche: "Hospitality", services: ["Website"] },
+    ultra: { sector: "Logistics and e-fulfilment", branche: "Automotive, transport & logistics", services: ["Website"] },
+    dentville: { sector: "Dental practice in Zaandam", branche: "Health & beauty", services: ["Website"] },
   },
 
-  reviews: {
-    JB: {
-      role: "Financial guardianship",
-      date: "14 August 2026",
-      text: "Our Google Ads and website are managed by Dutch Branders. For more than a year we've been ranking first, with a lower budget than before.",
-    },
-    SF: {
-      role: "Beauty salon",
-      date: "2 July 2026",
-      text: "We needed a new website. Dutch Branders helped us think about online sales, social media and email marketing. Very satisfied!",
-    },
-    EA: {
-      role: "Salsa & bachata",
-      date: "19 May 2026",
-      text: "Dutch Branders builds beautiful websites, likes to think along about the business and sets up great campaigns.",
-    },
-    KN: {
-      role: "Coffee bar",
-      date: "28 March 2026",
-      text: "New branding and website sorted in one go. Guests find us much more easily online and orders have been coming in steadily ever since.",
-    },
-    FJ: {
-      role: "Bike shop",
-      date: "11 February 2026",
-      text: "Great collaboration with short lines of communication. Since the new website and SEO, many more people from the area come to us for repairs.",
-    },
-    TZ: {
-      role: "Dental practice",
-      date: "23 January 2026",
-      text: "Professional and committed. The website is calm and clear, and new patients sign up through Google Ads every month.",
-    },
-  },
+
+
 
   faqs: [
     {
@@ -258,7 +187,7 @@ const en: Dict = {
     },
     {
       q: "How long until my website is live?",
-      a: "On average your website is live within [x] weeks. After the free analysis you'll get a clear schedule, so you know exactly when everything is ready.",
+      a: "On average your website is live within 3 weeks. After the free analysis you'll get a clear schedule, so you know exactly when everything is ready.",
     },
     {
       q: "Can I edit the website myself?",
@@ -392,7 +321,7 @@ const en: Dict = {
       basic: {
         name: "Website",
         text: "For business owners who want to get online professionally and be found quickly.",
-        items: ["Free analysis upfront", "Website in your brand style", "Mobile-friendly and fast", "Basic SEO setup", "Easy to edit in WordPress", "Live in [x] weeks"],
+        items: ["Free analysis upfront", "Website in your brand style", "Mobile-friendly and fast", "Basic SEO setup", "Easy to edit in WordPress", "Live in 3 weeks"],
       },
       full: {
         name: "Complete",
@@ -490,6 +419,8 @@ const en: Dict = {
     projects: "projects",
     none: "No projects found for this combination.",
     loadMore: "Load more",
+    visit: "Visit website",
+    offline: "Back online soon",
   },
 
   aboutPage: {

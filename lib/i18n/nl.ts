@@ -64,6 +64,8 @@ const nl = {
     title: "Geen verkooppraatje, maar\n*ervaringen* van klanten.",
     sub: "Wat ondernemers zeggen over samenwerken met Dutch Branders.",
     googleReview: "Google review",
+    readAll: "Lees alle reviews op Google",
+    empty: "Gemiddelde beoordeling van onze klanten",
     note: "Gemiddeld **5/5** · op basis van publieke reviews",
   },
 
@@ -171,98 +173,24 @@ const nl = {
 
   /* Per project: sector, branche, diensten en resultaten (volgorde gelijk aan lib/data.ts) */
   projects: {
-    "jurist-bewind": {
-      sector: "Bewindvoering",
-      branche: "Zakelijke dienstverlening",
-      services: ["Google Ads", "Website"],
-      metrics: [
-        { value: "Positie 1", label: "in Google" },
-        { value: "Lager", label: "advertentiebudget" },
-        { value: "1+ jaar", label: "stabiel resultaat" },
-      ],
-    },
-    "studio-fhs": {
-      sector: "Schoonheidssalon",
-      branche: "Beauty & wellness",
-      services: ["Website", "Webshop"],
-      metrics: [
-        { value: "[+x%]", label: "meer boekingen" },
-        { value: "Webshop", label: "online verkoop" },
-        { value: "E-mail", label: "marketing" },
-      ],
-    },
-    extremos: {
-      sector: "Dansschool in Amsterdam",
-      branche: "Sport & vrije tijd",
-      services: ["Website", "Campagnes"],
-      metrics: [
-        { value: "[+x]", label: "nieuwe leerlingen" },
-        { value: "Campagnes", label: "online" },
-        { value: "Website", label: "op maat" },
-      ],
-    },
-    "koffiebar-noord": {
-      sector: "Koffiebar",
-      branche: "Horeca",
-      services: ["Website", "Huisstijl"],
-      metrics: [
-        { value: "[+x%]", label: "online bestellingen" },
-        { value: "Huisstijl", label: "vernieuwd" },
-      ],
-    },
-    "fietsen-jansen": {
-      sector: "Fietsenwinkel",
-      branche: "Retail",
-      services: ["Website", "SEO"],
-      metrics: [
-        { value: "[+x%]", label: "meer bezoekers" },
-        { value: "SEO", label: "lokaal gevonden" },
-      ],
-    },
-    "tandartspraktijk-zuid": {
-      sector: "Tandartspraktijk",
-      branche: "Zorg",
-      services: ["Website", "Google Ads"],
-      metrics: [
-        { value: "[+x]", label: "nieuwe patiënten" },
-        { value: "Google Ads", label: "lokaal" },
-      ],
-    },
+    enka: { sector: "Keukenwinkel in Utrecht", branche: "Wonen & interieur", services: ["Website"] },
+    nextsleep: { sector: "Beddenspeciaalzaak in Utrecht", branche: "Wonen & interieur", services: ["Website"] },
+    denk: { sector: "Politieke partij", branche: "Politiek & maatschappij", services: ["Website"] },
+    cnk: { sector: "Medisch-esthetische kliniek", branche: "Zorg & beauty", services: ["Website"] },
+    atak: { sector: "Houtbouw op maat", branche: "Bouw & vakmanschap", services: ["Website"] },
+    vanstalen: { sector: "Autobedrijf in Zaandam", branche: "Auto, transport & logistiek", services: ["Website"] },
+    wagentransport: { sector: "Auto- en motortransport", branche: "Auto, transport & logistiek", services: ["Website"] },
+    firerocket: { sector: "Terrasverwarming op pellets", branche: "Webwinkels", services: ["Webshop"] },
+    bkp: { sector: "Bedrijfskleding met bedrukking", branche: "Webwinkels", services: ["Webshop"] },
+    shadow: { sector: "Beveiligingsbedrijf", branche: "Zakelijke dienstverlening", services: ["Website"] },
+    village: { sector: "Kapsalon in Amsterdam", branche: "Zorg & beauty", services: ["Website"] },
+    lust109: { sector: "Restaurant aan de Oudegracht", branche: "Horeca", services: ["Website"] },
+    ultra: { sector: "Logistiek en e-fulfilment", branche: "Auto, transport & logistiek", services: ["Website"] },
+    dentville: { sector: "Tandartspraktijk in Zaandam", branche: "Zorg & beauty", services: ["Website"] },
   },
 
-  /* Reviews per bedrijf (zelfde volgorde als lib/data.ts). Vervang voorbeelden door echte Google-reviews. */
-  reviews: {
-    JB: {
-      role: "Bewindvoering",
-      date: "14 augustus 2026",
-      text: "Onze Google Ads en website worden beheerd door Dutch Branders. Al langer dan een jaar halen we positie 1, met een lager budget dan voorheen.",
-    },
-    SF: {
-      role: "Schoonheidssalon",
-      date: "2 juli 2026",
-      text: "We hadden een nieuwe website nodig. Dutch Branders dacht mee over online verkoop, social media en e-mailmarketing. Zeer tevreden!",
-    },
-    EA: {
-      role: "Salsa & bachata",
-      date: "19 mei 2026",
-      text: "Dutch Branders bouwt mooie websites, denkt graag mee in de business en zet goede campagnes op.",
-    },
-    KN: {
-      role: "Koffiebar",
-      date: "28 maart 2026",
-      text: "Nieuwe huisstijl én website in één keer geregeld. Gasten vinden ons nu veel makkelijker online en de bestellingen lopen sindsdien gewoon door.",
-    },
-    FJ: {
-      role: "Fietsenwinkel",
-      date: "11 februari 2026",
-      text: "Fijne samenwerking met korte lijnen. Sinds de nieuwe website en SEO komen er veel meer mensen uit de buurt bij ons binnen voor onderhoud.",
-    },
-    TZ: {
-      role: "Tandartspraktijk",
-      date: "23 januari 2026",
-      text: "Professioneel en betrokken. De website is rustig en duidelijk, en via Google Ads melden zich elke maand nieuwe patiënten aan.",
-    },
-  },
+
+
 
   faqs: [
     {
@@ -271,7 +199,7 @@ const nl = {
     },
     {
       q: "Hoe lang duurt het voordat mijn website online staat?",
-      a: "Gemiddeld staat je website binnen [x] weken online. Na de gratis analyse krijg je een duidelijke planning, zodat je precies weet wanneer wat klaar is.",
+      a: "Gemiddeld staat je website binnen 3 weken online. Na de gratis analyse krijg je een duidelijke planning, zodat je precies weet wanneer wat klaar is.",
     },
     {
       q: "Kan ik de website zelf aanpassen?",
@@ -405,7 +333,7 @@ const nl = {
       basic: {
         name: "Website",
         text: "Voor ondernemers die snel professioneel online willen staan en gevonden willen worden.",
-        items: ["Gratis analyse vooraf", "Website in jouw huisstijl", "Mobielvriendelijk en snel", "Basis SEO-inrichting", "Zelf aan te passen in WordPress", "Online in [x] weken"],
+        items: ["Gratis analyse vooraf", "Website in jouw huisstijl", "Mobielvriendelijk en snel", "Basis SEO-inrichting", "Zelf aan te passen in WordPress", "Online in 3 weken"],
       },
       full: {
         name: "Compleet",
@@ -503,6 +431,8 @@ const nl = {
     projects: "projecten",
     none: "Geen projecten gevonden voor deze combinatie.",
     loadMore: "Meer laden",
+    visit: "Bekijk website",
+    offline: "Binnenkort weer online",
   },
 
   aboutPage: {

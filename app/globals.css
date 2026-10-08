@@ -620,7 +620,12 @@ ul {
   inset: 0;
 }
 
-.project-card .shot {
+.project-card .shot,
+.werk-card .shot {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: top center;
   transition: transform 0.6s ease;
@@ -1488,10 +1493,11 @@ ul {
   font-weight: 800;
   line-height: 1.17;
   letter-spacing: -0.02em;
-  color: #d9d6ec;
+  color: var(--navy);
 }
 
 .big-quote em {
+  color: var(--orange);
   font-family: var(--font-serif);
   font-weight: 400;
   font-style: italic;
@@ -2248,8 +2254,71 @@ textarea.input {
 
 .werk-card .visual {
   position: relative;
+  display: block;
   height: 470px;
   overflow: hidden;
+}
+
+.werk-card .shot {
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.6s ease;
+}
+
+.werk-card a.visual:hover .shot {
+  transform: scale(1.03);
+}
+
+.shot-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 24px;
+  background: var(--navy-soft);
+  color: var(--white);
+  text-align: center;
+}
+
+.shot-fallback strong {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.shot-fallback span {
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+.werk-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px;
+  font-size: 13px;
+}
+
+.werk-foot a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: var(--orange);
+}
+
+.werk-foot a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.werk-foot .domain {
+  color: var(--muted);
+  font-size: 12px;
 }
 
 .werk-card .visual .mock {
@@ -2374,6 +2443,7 @@ textarea.input {
 }
 
 .review-ini {
+  background: var(--navy-soft);
   width: 26px;
   height: 26px;
   border-radius: 50%;
@@ -3258,7 +3328,7 @@ textarea.input {
 }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
   .nav,
   .header-cta {
     display: none;
@@ -3319,6 +3389,10 @@ textarea.input {
     border-bottom: 0;
     font-size: 15px;
   }
+
+}
+
+@media (max-width: 1024px) {
 
   .motto,
   .split,
@@ -3494,4 +3568,234 @@ textarea.input {
   opacity: 0.6;
   cursor: wait;
   transform: none;
+}
+
+.rating-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  max-width: 460px;
+  margin: 0 auto;
+  padding: 34px 24px;
+  background: #f2f1f5;
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.rating-hero .stars svg {
+  width: 26px;
+  height: 26px;
+}
+
+.rating-hero strong {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.rating-hero p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+#reviews .btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ---------- Tablet (iPad) ---------- */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .pricing {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pricing .roi {
+    grid-column: 1 / -1;
+    order: 3;
+  }
+
+  .roi-scen {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .svc-grid-row2 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .stat-grid {
+    margin-top: 0;
+  }
+
+  .team {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .reviews {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 1024px) {
+  .lead-grid > *,
+  .contact-grid > *,
+  .jobs > *,
+  .werk-hero > * {
+    min-width: 0;
+  }
+
+  .carousel-head {
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  .lead-section {
+    padding: 70px 0;
+  }
+}
+
+/* ---------- Telefoon ---------- */
+@media (max-width: 640px) {
+  .section,
+  .section-sm {
+    padding: 56px 0;
+  }
+
+  /* secties met vaste afstanden in de pagina zelf compacter maken */
+  main section[style*="padding"] {
+    padding-top: 0 !important;
+    padding-bottom: 56px !important;
+  }
+
+  .page-hero {
+    padding: 44px 0 36px;
+  }
+
+  .hero-home {
+    padding-top: 36px;
+  }
+
+  .h2 {
+    font-size: 30px;
+  }
+
+  .carousel-head > div:first-child {
+    flex: 1 1 100%;
+  }
+
+  .carousel-head .round-btns {
+    margin-left: auto;
+  }
+
+  .carousel-head .h2 {
+    font-size: 28px !important;
+  }
+
+  .svc,
+  .svc-grid-row2 .svc {
+    min-height: 0;
+    gap: 28px;
+    padding: 22px;
+  }
+
+  .svc h3,
+  .svc.big h3 {
+    font-size: 26px;
+  }
+
+  .proof-main {
+    min-height: 0;
+    padding: 28px 22px;
+  }
+
+  .proof-main h3 {
+    font-size: 26px;
+  }
+
+  .inbox-row {
+    grid-template-columns: 12px 12px 1fr auto;
+  }
+
+  .inbox-row .s {
+    display: none;
+  }
+
+  .big-quote {
+    font-size: 24px;
+  }
+
+  .motto .h1,
+  .lead-grid .h1,
+  .maatwerk .h1 {
+    font-size: 34px;
+  }
+
+  .stat-grid {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 8px;
+  }
+
+  .stat-tile {
+    min-height: 0;
+    padding: 18px 16px;
+  }
+
+  .stat-tile strong {
+    font-size: 26px;
+  }
+
+  .team {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 40px;
+  }
+
+  .team strong {
+    font-size: 14px;
+  }
+
+  .team span {
+    font-size: 13px;
+  }
+
+  .course h3 {
+    margin-top: 20px;
+  }
+
+  .maatwerk {
+    gap: 20px;
+  }
+
+  .maatwerk-box {
+    min-height: 0;
+  }
+
+  .svc-row h2 {
+    font-size: 34px;
+  }
+
+  .werk-card .visual {
+    height: 420px;
+  }
+
+  .cta-band {
+    padding: 56px 0;
+  }
+
+  .lead-form {
+    padding: 34px 18px 20px;
+  }
+
+  .logos {
+    padding: 40px 0 56px;
+  }
+
+  .rating-hero strong {
+    font-size: 46px;
+  }
+
+  .compare-wrap .h2 {
+    font-size: 26px !important;
+  }
 }
