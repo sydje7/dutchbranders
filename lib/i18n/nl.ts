@@ -33,7 +33,6 @@ const nl = {
     prev: "Vorige",
     next: "Volgende",
     googlePartner: "Officiële Google Partner",
-    founderRole: "Oprichter Dutch Branders",
     stars: "5 sterren",
     sending: "Versturen…",
     formError: "Er ging iets mis bij het versturen. Probeer het opnieuw of mail ons op info@dutchbranders.nl.",
@@ -511,7 +510,6 @@ const nl = {
       ],
     },
     projectsTitle: "Projecten die laten zien\nwat *onze aanpak*\noplevert.",
-    team: { label: "Het team", title: "De mensen achter *het werk*.", name: "[Naam]", role: "[Functie]" },
   },
 
   coursesPage: {

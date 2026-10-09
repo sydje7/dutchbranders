@@ -6,7 +6,6 @@ export const contact = {
   mapsUrl: "https://www.google.com/maps/place/data=!4m2!3m1!1s0x47c5e3b905585495:0x7416b8aba98b1faf",
   kvk: "81843895",
   btw: "NL864519886B01",
-  founder: "Burak Demirozcan",
 };
 
 /* Projecten op de Werk-pagina en Over ons (screenshots in /public/klanten); teksten staan in lib/i18n */

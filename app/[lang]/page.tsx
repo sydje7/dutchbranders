@@ -284,13 +284,6 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <p className="body" style={{ maxWidth: 680, marginTop: 20 }}>
             {h.personal.text}
           </p>
-          <div className="founder">
-            <Avatar look={looks.founder} />
-            <div>
-              <strong>{contact.founder}</strong>
-              <span>{d.common.founderRole}</span>
-            </div>
-          </div>
           <div className="usp-bar">
             <ul>
               {h.personal.usps.map((u) => (
@@ -416,9 +409,9 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             </h2>
             <p className="body">{h.leadSection.text}</p>
             <div className="contact-person">
-              <Avatar look={looks.founder} />
+              <span className="contact-logo" aria-hidden>db.</span>
               <div>
-                <strong>{contact.founder}</strong>
+                <strong>Dutch Branders</strong>
                 <br />
                 <a href={`mailto:${contact.email}`}>{contact.email}</a>
                 <br />

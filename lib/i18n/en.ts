@@ -32,7 +32,6 @@ const en: Dict = {
     prev: "Previous",
     next: "Next",
     googlePartner: "Official Google Partner",
-    founderRole: "Founder of Dutch Branders",
     stars: "5 stars",
     sending: "Sending…",
     formError: "Something went wrong while sending. Please try again or email us at info@dutchbranders.nl.",
@@ -499,7 +498,6 @@ const en: Dict = {
       ],
     },
     projectsTitle: "Projects that show\nwhat *our approach*\ndelivers.",
-    team: { label: "The team", title: "The people behind *the work*.", name: "[Name]", role: "[Role]" },
   },
 
   coursesPage: {

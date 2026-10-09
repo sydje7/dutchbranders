@@ -5,10 +5,9 @@ import Carousel from "@/components/ProjectCarousel";
 import WorkCard from "@/components/WorkCard";
 import Rich from "@/components/Rich";
 import { Mock } from "@/components/Mockups";
-import { Avatar, TeamFigure, looks } from "@/components/Avatar";
 import { CtaBand, ReviewLine, ReviewsSection } from "@/components/Sections";
 import { CheckCircle, XCircle } from "@/components/Icons";
-import { contact, projects } from "@/lib/data";
+import { projects } from "@/lib/data";
 import { getDict, hasLocale, localePath } from "@/lib/i18n";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/over-ons">): Promise<Metadata> {
@@ -18,7 +17,6 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/over-ons">
   return { title: t.metaTitle, description: t.metaDescription };
 }
 
-const team = [looks.glasses, looks.curly, looks.long, looks.beard];
 const statThemes = ["navy", "orange", "", ""];
 
 export default async function OverOns({ params }: PageProps<"/[lang]/over-ons">) {
@@ -68,13 +66,6 @@ export default async function OverOns({ params }: PageProps<"/[lang]/over-ons">)
               <Rich text={t.story.title} />
             </h2>
             <p className="body">{t.story.text}</p>
-            <div className="founder">
-              <Avatar look={looks.founder} />
-              <div>
-                <strong>{contact.founder}</strong>
-                <span>{d.common.founderRole}</span>
-              </div>
-            </div>
           </div>
           <div className="stat-grid">
             {t.story.stats.map((s, i) => (
@@ -172,25 +163,6 @@ export default async function OverOns({ params }: PageProps<"/[lang]/over-ons">)
         </Carousel>
       </section>
 
-      <section>
-        <div className="container">
-          <span className="label">{t.team.label}</span>
-          <h2 className="h2" style={{ fontSize: "clamp(30px, 3.6vw, 42px)" }}>
-            <Rich text={t.team.title} />
-          </h2>
-          <div className="team">
-            {team.map((l, i) => (
-              <div key={i}>
-                <div className="team-photo">
-                  <TeamFigure look={l} />
-                </div>
-                <strong>{t.team.name}</strong>
-                <span>{t.team.role}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <ReviewsSection dict={d} lang={lang} />
       <CtaBand dict={d} lang={lang} />

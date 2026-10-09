@@ -72,7 +72,7 @@ export function customerMail(r: MailRequest) {
     <p style="margin:0 0 8px;font-weight:700">${esc(t.summary)}</p>
     ${table(r.fields)}
     <p style="margin:20px 0 0">${esc(t.questions)} <a href="${contact.phoneHref}" style="color:#f47549">${esc(contact.phone)}</a>.</p>
-    <p style="margin:20px 0 0">${esc(t.regards)}<br><strong>${esc(contact.founder)}</strong><br>Dutch Branders</p>`);
+    <p style="margin:20px 0 0">${esc(t.regards)}<br><strong>Dutch Branders</strong></p>`);
   return { subject: t.subject, html };
 }
 

@@ -3799,3 +3799,18 @@ textarea.input {
     font-size: 26px !important;
   }
 }
+
+.contact-logo {
+  flex: none;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}

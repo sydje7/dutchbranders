@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Rich from "@/components/Rich";
 import CourseQuoteForm from "@/components/CourseQuoteForm";
-import { Avatar, looks } from "@/components/Avatar";
 import { contact } from "@/lib/data";
 import { ArrowRight, ArrowUpRight, Check } from "@/components/Icons";
 import { getDict, hasLocale } from "@/lib/i18n";
@@ -90,9 +89,9 @@ export default async function Cursussen({ params }: PageProps<"/[lang]/cursussen
             </h2>
             <p className="body">{t.quote.text}</p>
             <div className="contact-person">
-              <Avatar look={looks.founder} />
+              <span className="contact-logo" aria-hidden>db.</span>
               <div>
-                <strong>{contact.founder}</strong>
+                <strong>Dutch Branders</strong>
                 <br />
                 <a href={`mailto:${contact.email}`}>{contact.email}</a>
                 <br />
