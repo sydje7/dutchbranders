@@ -46,7 +46,8 @@ const nl = {
     careers: "Werken bij",
     quote: "Offerte aanvragen",
     legalLabel: "Juridisch",
-    legal: ["Privacy", "Algemene voorwaarden", "Cookiebeleid", "Sitemap"],
+    privacy: "Privacy",
+    cookies: "Cookies",
     vat: "BTW",
     coc: "KvK",
   },
@@ -509,6 +510,48 @@ const nl = {
       ],
     },
     projectsTitle: "Projecten die laten zien\nwat *onze aanpak*\noplevert.",
+  },
+
+  privacyPage: {
+    metaTitle: "Privacyverklaring",
+    metaDescription: "Hoe Dutch Branders omgaat met je persoonsgegevens en welke cookies deze website gebruikt.",
+    label: "Privacy",
+    title: "Privacy­verklaring",
+    updated: "Laatst bijgewerkt: oktober 2026",
+    sections: [
+      {
+        h: "Wie zijn wij?",
+        p: ["Dutch Branders, Handelweg 12H, 1521 NH Wormerveer, KvK 81843895. Dutch Branders gaat zorgvuldig om met je persoonsgegevens. Onder persoonsgegevens verstaan we informatie die herleidbaar is tot een persoon, zoals een naam, huisadres of e-mailadres. De bescherming van deze gegevens is geregeld in de Algemene Verordening Gegevensbescherming (AVG)."],
+      },
+      {
+        h: "Welke gegevens verwerken we?",
+        p: ["We verwerken persoonsgegevens zodra je een formulier op deze website invult, zoals het contactformulier, de aanvraag voor een gratis analyse of een sollicitatie. Het gaat om de gegevens die je zelf invult:"],
+        ul: ["Naam", "E-mailadres", "Telefoonnummer", "Bedrijfsnaam en website", "Je bericht of motivatie", "Bij een sollicitatie: je cv en eventuele link naar je portfolio of LinkedIn"],
+      },
+      {
+        h: "Waarvoor gebruiken we ze?",
+        p: ["We gebruiken je gegevens om contact met je op te nemen, je te informeren over onze diensten, een offerte of analyse te maken en een eventuele samenwerking tot stand te brengen. Gegevens uit een sollicitatie gebruiken we alleen om je sollicitatie te beoordelen."],
+      },
+      {
+        h: "Delen met derden",
+        p: ["We verkopen je gegevens nooit en geven ze niet zonder je toestemming aan derden. Voor het versturen van e-mails vanuit de formulieren gebruiken we een e-maildienst (Resend), en de website draait bij een hostingpartij (Vercel). Zij verwerken gegevens alleen in onze opdracht en om deze diensten te leveren."],
+      },
+      {
+        h: "Beveiliging en bewaartermijn",
+        p: ["We zorgen voor passende beveiliging van de persoonsgegevens die we onder ons hebben, in lijn met de geldende wettelijke eisen en richtlijnen. We bewaren gegevens niet langer dan nodig is voor het doel waarvoor ze zijn verzameld. Sollicitatiegegevens verwijderen we uiterlijk vier weken na afloop van de sollicitatieprocedure, tenzij je toestemming geeft om ze langer te bewaren."],
+      },
+      {
+        h: "Jouw rechten",
+        p: ["Je kunt ons vragen om:"],
+        ul: ["Inzage in de persoonsgegevens die we van je verwerken", "Je gegevens aan te passen", "Je gegevens te verwijderen", "Je gegevens beperkt te verwerken", "Bezwaar te maken tegen de verwerking"],
+        after: "Stuur je verzoek naar info@dutchbranders.nl. Ben je het niet eens met hoe we met je gegevens omgaan, dan kun je ook een klacht indienen bij de Autoriteit Persoonsgegevens.",
+      },
+      {
+        id: "cookies",
+        h: "Cookies",
+        p: ["Deze website plaatst geen tracking- of advertentiecookies en houdt je bezoek niet bij met analysetools. Daarom zie je ook geen cookiemelding. Gaan we dat in de toekomst wel doen, dan passen we deze verklaring aan en vragen we eerst je toestemming."],
+      },
+    ],
   },
 
   contactPage: {

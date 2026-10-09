@@ -6,5 +6,5 @@ export const dynamic = "force-dynamic";
 export default function robots(): MetadataRoute.Robots {
   return process.env.SITE_PASSWORD
     ? { rules: { userAgent: "*", disallow: "/" } }
-    : { rules: { userAgent: "*", allow: "/" } };
+    : { rules: { userAgent: "*", allow: "/" }, sitemap: "https://dutchbranders.nl/sitemap.xml" };
 }

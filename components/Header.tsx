@@ -21,6 +21,11 @@ export default function Header() {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+    document.body.classList.toggle("menu-open", open);
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
   const nav = [
@@ -64,12 +69,24 @@ export default function Header() {
           </Link>
         </nav>
 
-        <button className="menu-toggle" aria-label={open ? t.closeMenu : t.openMenu} onClick={() => setOpen(!open)}>
+        <button
+          type="button"
+          className="menu-toggle"
+          aria-label={open ? t.closeMenu : t.openMenu}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          onClick={() => setOpen(!open)}
+        >
           {open ? <Close /> : <Menu />}
         </button>
       </div>
 
-      <div className={"mobile-nav" + (open ? " open" : "")}>
+      <div
+        id="mobile-nav"
+        className={"mobile-nav" + (open ? " open" : "")}
+        inert={!open}
+        onClick={(e) => (e.target as HTMLElement).closest("a") && setOpen(false)}
+      >
         {nav.map((item) => (
           <div key={item.path}>
             <Link href={href(item.path)}>{item.label}</Link>

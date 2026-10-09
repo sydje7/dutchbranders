@@ -45,7 +45,8 @@ const en: Dict = {
     careers: "Careers",
     quote: "Request a quote",
     legalLabel: "Legal",
-    legal: ["Privacy", "Terms & conditions", "Cookie policy", "Sitemap"],
+    privacy: "Privacy",
+    cookies: "Cookies",
     vat: "VAT",
     coc: "CoC",
   },
@@ -497,6 +498,48 @@ const en: Dict = {
       ],
     },
     projectsTitle: "Projects that show\nwhat *our approach*\ndelivers.",
+  },
+
+  privacyPage: {
+    metaTitle: "Privacy statement",
+    metaDescription: "How Dutch Branders handles your personal data and which cookies this website uses.",
+    label: "Privacy",
+    title: "Privacy statement",
+    updated: "Last updated: October 2026",
+    sections: [
+      {
+        h: "Who are we?",
+        p: ["Dutch Branders, Handelweg 12H, 1521 NH Wormerveer, the Netherlands, Chamber of Commerce no. 81843895. Dutch Branders handles your personal data with care. Personal data is information that can be traced back to a person, such as a name, home address or email address. The protection of this data is governed by the General Data Protection Regulation (GDPR)."],
+      },
+      {
+        h: "What data do we process?",
+        p: ["We process personal data when you fill in a form on this website, such as the contact form, the request for a free analysis or a job application. This is the information you enter yourself:"],
+        ul: ["Name", "Email address", "Phone number", "Company name and website", "Your message or motivation", "For applications: your CV and any link to your portfolio or LinkedIn"],
+      },
+      {
+        h: "What do we use it for?",
+        p: ["We use your data to get in touch with you, inform you about our services, prepare a quote or analysis and set up a possible collaboration. Data from a job application is only used to assess your application."],
+      },
+      {
+        h: "Sharing with third parties",
+        p: ["We never sell your data and do not pass it on to third parties without your consent. To send emails from the forms we use an email service (Resend), and the website is hosted by a hosting provider (Vercel). They only process data on our behalf and to provide these services."],
+      },
+      {
+        h: "Security and retention",
+        p: ["We take appropriate measures to secure the personal data we hold, in line with the applicable legal requirements and guidelines. We do not keep data longer than necessary for the purpose for which it was collected. Application data is deleted no later than four weeks after the application process ends, unless you agree to us keeping it longer."],
+      },
+      {
+        h: "Your rights",
+        p: ["You can ask us to:"],
+        ul: ["Show you the personal data we process about you", "Correct your data", "Delete your data", "Restrict the processing of your data", "Object to the processing"],
+        after: "Send your request to info@dutchbranders.nl. If you disagree with how we handle your data, you can also file a complaint with the Dutch Data Protection Authority (Autoriteit Persoonsgegevens).",
+      },
+      {
+        id: "cookies",
+        h: "Cookies",
+        p: ["This website does not place tracking or advertising cookies and does not track your visit with analytics tools. That's why you won't see a cookie banner. If we start doing so in the future, we will update this statement and ask for your consent first."],
+      },
+    ],
   },
 
   contactPage: {

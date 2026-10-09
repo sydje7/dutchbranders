@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import Rich from "./Rich";
-import { Instagram, LinkedIn, Stars } from "./Icons";
+import { LinkedIn, Stars } from "./Icons";
 import { useI18n } from "./I18n";
 import { contact } from "@/lib/data";
 
@@ -45,8 +45,7 @@ export default function Footer() {
           <div>
             <h4>{t.social}</h4>
             <div className="socials">
-              <a href="#" aria-label="LinkedIn"><LinkedIn /></a>
-              <a href="#" aria-label="Instagram"><Instagram /></a>
+              <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><LinkedIn /></a>
             </div>
           </div>
         </div>
@@ -55,9 +54,8 @@ export default function Footer() {
             © {new Date().getFullYear()} Dutch Branders · {t.coc} {contact.kvk} · {t.vat} {contact.btw}
           </span>
           <nav aria-label={t.legalLabel}>
-            {t.legal.map((l) => (
-              <a href="#" key={l}>{l}</a>
-            ))}
+            <Link href={href("/privacy")}>{t.privacy}</Link>
+            <Link href={href("/privacy#cookies")}>{t.cookies}</Link>
           </nav>
         </div>
       </div>

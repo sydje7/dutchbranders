@@ -3929,3 +3929,41 @@ textarea.input {
     margin-top: 48px;
   }
 }
+
+/* Chatknop niet over het geopende mobiele menu heen */
+body.menu-open .chat {
+  display: none;
+}
+
+/* ---------- Privacy ---------- */
+.legal-page {
+  max-width: 760px;
+  padding-bottom: 100px;
+}
+
+.legal-page h2 {
+  margin: 44px 0 12px;
+  font-size: 22px;
+  scroll-margin-top: 90px;
+}
+
+.legal-page p,
+.legal-page li {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.legal-page ul {
+  margin: 10px 0 0;
+  padding-left: 20px;
+}
+
+.legal-page li + li {
+  margin-top: 4px;
+}
+
+.legal-page a {
+  color: var(--navy);
+  text-decoration: underline;
+}
