@@ -2,7 +2,7 @@ import "server-only";
 import { contact } from "./data";
 import type { Locale } from "./i18n";
 
-export type RequestType = "analyse" | "contact" | "cursus";
+export type RequestType = "analyse" | "contact" | "sollicitatie";
 
 export type MailRequest = {
   type: RequestType;
@@ -18,7 +18,9 @@ const esc = (s: string) =>
 const copy = {
   nl: {
     subject: "We hebben je aanvraag ontvangen – Dutch Branders",
-    types: { analyse: "aanvraag voor een gratis analyse", contact: "aanvraag", cursus: "offerteaanvraag voor een cursus" },
+    types: { analyse: "aanvraag voor een gratis analyse", contact: "aanvraag", sollicitatie: "sollicitatie" },
+    jobSubject: "We hebben je sollicitatie ontvangen – Dutch Branders",
+    jobThanks: "Bedankt voor je sollicitatie en je interesse in Dutch Branders! We hebben alles goed ontvangen, lezen je sollicitatie met aandacht en nemen zo snel mogelijk contact met je op.",
     hi: (n: string) => `Hoi ${n},`,
     thanks: (t: string) => `Bedankt voor je ${t}! We hebben alles goed ontvangen en nemen binnen één werkdag persoonlijk contact met je op.`,
     summary: "Dit heb je ingevuld:",
@@ -27,7 +29,9 @@ const copy = {
   },
   en: {
     subject: "We've received your request – Dutch Branders",
-    types: { analyse: "request for a free analysis", contact: "request", cursus: "quote request for a course" },
+    types: { analyse: "request for a free analysis", contact: "request", sollicitatie: "application" },
+    jobSubject: "We've received your application – Dutch Branders",
+    jobThanks: "Thank you for your application and your interest in Dutch Branders! We've received everything, will read your application carefully and get back to you as soon as possible.",
     hi: (n: string) => `Hi ${n},`,
     thanks: (t: string) => `Thank you for your ${t}! We've received everything and will personally get in touch within one business day.`,
     summary: "Here's what you filled in:",
@@ -39,7 +43,7 @@ const copy = {
 const ownerTypes: Record<RequestType, string> = {
   analyse: "Gratis analyse",
   contact: "Contactformulier",
-  cursus: "Offerte cursus",
+  sollicitatie: "Sollicitatie",
 };
 
 function table(fields: [string, string][]) {
@@ -68,12 +72,12 @@ export function customerMail(r: MailRequest) {
   const first = r.name.trim().split(/\s+/)[0];
   const html = layout(`
     <p style="margin:0 0 12px">${esc(t.hi(first))}</p>
-    <p style="margin:0 0 20px">${esc(t.thanks(t.types[r.type]))}</p>
+    <p style="margin:0 0 20px">${esc(r.type === "sollicitatie" ? t.jobThanks : t.thanks(t.types[r.type]))}</p>
     <p style="margin:0 0 8px;font-weight:700">${esc(t.summary)}</p>
     ${table(r.fields)}
     <p style="margin:20px 0 0">${esc(t.questions)} <a href="${contact.phoneHref}" style="color:#f47549">${esc(contact.phone)}</a>.</p>
     <p style="margin:20px 0 0">${esc(t.regards)}<br><strong>Dutch Branders</strong></p>`);
-  return { subject: t.subject, html };
+  return { subject: r.type === "sollicitatie" ? t.jobSubject : t.subject, html };
 }
 
 /* Melding voor Dutch Branders zelf */
@@ -83,5 +87,6 @@ export function ownerMail(r: MailRequest) {
     <p style="margin:0 0 16px;font-size:20px;font-weight:700">${esc(r.name)}</p>
     ${table([["E-mail", r.email], ...r.fields])}
     <p style="margin:20px 0 0;font-size:13px;color:#555180">Beantwoord deze mail om direct te reageren aan ${esc(r.name)}.</p>`);
-  return { subject: `Nieuwe aanvraag: ${ownerTypes[r.type]} – ${r.name}`, html };
+  const subject = r.type === "sollicitatie" ? `Nieuwe sollicitatie – ${r.name}` : `Nieuwe aanvraag: ${ownerTypes[r.type]} – ${r.name}`;
+  return { subject, html };
 }

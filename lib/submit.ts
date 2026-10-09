@@ -9,6 +9,7 @@ export async function submitRequest(data: {
   email: string;
   fields: [string, string][];
   fax?: string;
+  cv?: { name: string; data: string };
 }) {
   try {
     const res = await fetch("/api/aanvraag", {

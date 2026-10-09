@@ -3,7 +3,9 @@ import { Resend } from "resend";
 import { customerMail, ownerMail, type MailRequest, type RequestType } from "@/lib/mail";
 import { hasLocale } from "@/lib/i18n";
 
-const TYPES: RequestType[] = ["analyse", "contact", "cursus"];
+const TYPES: RequestType[] = ["analyse", "contact", "sollicitatie"];
+const CV_TYPES = /\.(pdf|docx?)$/i;
+const CV_MAX_BASE64 = 7_000_000; // ± 5 MB bestand
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const FROM = process.env.MAIL_FROM ?? "Dutch Branders <info@dutchbranders.nl>";
@@ -30,6 +32,18 @@ export async function POST(req: Request) {
     fields.every((f) => Array.isArray(f) && f.length === 2 && f.every((x) => typeof x === "string" && x.length <= 5000));
   if (!valid) return NextResponse.json({ ok: false, error: "invalid" }, { status: 400 });
 
+  // Optioneel cv (alleen bij sollicitaties): { name, data(base64) }
+  let attachments: { filename: string; content: string }[] | undefined;
+  const cv = (body.cv ?? null) as { name?: unknown; data?: unknown } | null;
+  if (cv && type === "sollicitatie") {
+    const { name: file, data } = cv;
+    const ok =
+      typeof file === "string" && CV_TYPES.test(file) && file.length <= 200 &&
+      typeof data === "string" && data.length <= CV_MAX_BASE64 && /^[A-Za-z0-9+/=]+$/.test(data);
+    if (!ok) return NextResponse.json({ ok: false, error: "invalid_cv" }, { status: 400 });
+    attachments = [{ filename: (file as string).replace(/[^\w.\- ]/g, "_"), content: data as string }];
+  }
+
   const r = { type, lang, name: name.trim(), email: email.trim(), fields } as MailRequest;
 
   const key = process.env.RESEND_API_KEY;
@@ -44,7 +58,7 @@ export async function POST(req: Request) {
   const resend = new Resend(key);
 
   const owner = ownerMail(r);
-  const ownerRes = await resend.emails.send({ from: FROM, to: TO, replyTo: r.email, subject: owner.subject, html: owner.html });
+  const ownerRes = await resend.emails.send({ from: FROM, to: TO, replyTo: r.email, subject: owner.subject, html: owner.html, attachments });
   if (ownerRes.error) {
     console.error("[aanvraag] melding niet verstuurd:", ownerRes.error);
     return NextResponse.json({ ok: false, error: "send_failed" }, { status: 502 });

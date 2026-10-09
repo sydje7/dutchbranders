@@ -29,8 +29,7 @@ export default function Footer() {
               <li><Link href={href("/diensten")}>{n.services}</Link></li>
               <li><Link href={href("/werk")}>{n.work}</Link></li>
               <li><Link href={href("/over-ons")}>{n.about}</Link></li>
-              <li><Link href={href("/cursussen")}>{n.courses}</Link></li>
-              <li><Link href={href("/#werken-bij")}>{t.careers}</Link></li>
+              <li><Link href={href("/werken-bij")}>{t.careers}</Link></li>
               <li><Link href={href("/contact")}>{t.quote}</Link></li>
             </ul>
           </div>

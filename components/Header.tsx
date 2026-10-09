@@ -27,7 +27,6 @@ export default function Header() {
     { path: "/diensten", label: t.services, dropdown: true },
     { path: "/werk", label: t.work },
     { path: "/over-ons", label: t.about },
-    { path: "/cursussen", label: t.courses },
   ];
 
   const isActive = (p: string) => base === p || base.startsWith(p + "/");

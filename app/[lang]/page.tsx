@@ -442,10 +442,10 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             </h2>
             <p className="body">{h.jobs.text}</p>
             <div className="btn-row">
-              <Link href={L("/contact")} className="btn btn-navy btn-sm">
+              <Link href={L("/werken-bij#vacatures")} className="btn btn-navy btn-sm">
                 {h.jobs.vacancies}
               </Link>
-              <Link href={L("/contact")} className="btn btn-outline btn-sm">
+              <Link href={L("/werken-bij#solliciteren")} className="btn btn-outline btn-sm">
                 {h.jobs.open}
               </Link>
             </div>

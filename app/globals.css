@@ -3814,3 +3814,118 @@ textarea.input {
   font-size: 20px;
   letter-spacing: -0.02em;
 }
+
+/* ---------- Werken bij ---------- */
+.jobs-hero {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.jobs-hero .collage {
+  margin-top: 56px;
+}
+
+.jobs-hero .lead {
+  max-width: 500px;
+}
+
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.course.role {
+  display: flex;
+  flex-direction: column;
+}
+
+.course.role h3 {
+  margin-top: 26px;
+}
+
+.course.role > p {
+  margin-bottom: 22px;
+  flex: 1;
+}
+
+.course.role .btn {
+  align-self: flex-start;
+}
+
+.course.orange {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+
+.course.orange .level {
+  border-color: rgba(43, 36, 103, 0.3);
+}
+
+.process-steps.steps-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.file-pick {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.file-pick input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.file-pick input:focus-visible + .btn {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+.file-pick .file-name {
+  font-size: 13px;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+@media (max-width: 1024px) {
+  .jobs-hero {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .jobs-hero .collage {
+    margin-top: 72px;
+  }
+
+  .offer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .courses {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .offer-grid,
+  .process-steps.steps-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .jobs-hero .collage {
+    height: 220px;
+    margin-top: 48px;
+  }
+}
