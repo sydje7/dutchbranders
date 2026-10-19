@@ -17,9 +17,9 @@
   --radius-lg: 20px;
   --container: 1180px;
   --font-sans: var(--font-poppins), system-ui, sans-serif;
-  --font-hand: var(--font-caveat), cursive;
-  --font-mono: var(--font-mono-jb), ui-monospace, monospace;
-  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-hand: var(--font-sans);
+  --font-mono: var(--font-sans);
+  --font-serif: var(--font-sans);
 }
 
 *,
@@ -728,7 +728,7 @@ ul {
 
 .l-fhs {
   font-family: var(--font-serif);
-  font-style: italic;
+  font-style: normal;
   letter-spacing: 0.08em;
 }
 
@@ -739,7 +739,7 @@ ul {
 
 .l-jb {
   font-family: var(--font-serif);
-  font-style: italic;
+  font-style: normal;
 }
 
 .l-denk {
@@ -771,7 +771,7 @@ ul {
 
 .l-fire {
   font-weight: 800;
-  font-style: italic;
+  font-style: normal;
   letter-spacing: -0.02em;
 }
 
@@ -1500,7 +1500,7 @@ ul {
   color: var(--orange);
   font-family: var(--font-serif);
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
   letter-spacing: 0;
 }
 
@@ -3975,7 +3975,7 @@ body.menu-open .chat {
 :root {
   --ink: #14122b;
   --paper: #ebe8e0;
-  --serif: var(--font-playfair), Georgia, serif;
+  --serif: var(--font-sans);
 }
 
 /* ---------- Scroll-reveal ---------- */
@@ -4075,7 +4075,7 @@ body.menu-open .chat {
 .display .accent,
 .statement .accent {
   font-family: var(--serif);
-  font-style: italic;
+  font-style: normal;
   font-weight: 400;
   letter-spacing: -0.02em;
   color: var(--orange);
@@ -4463,7 +4463,7 @@ body.menu-open .chat {
 
 .pm-row-n {
   font-family: var(--serif);
-  font-style: italic;
+  font-style: normal;
   font-size: 22px;
   color: var(--orange);
 }
@@ -4897,7 +4897,7 @@ body.menu-open .chat {
   --slate-bg:
     repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.022) 0 2px, transparent 2px 26px),
     linear-gradient(160deg, #262b52 0%, #1a1d39 55%, #121428 100%);
-  --condensed: var(--font-anton), "Arial Narrow", sans-serif;
+  --condensed: var(--font-sans);
 }
 
 .hy-condensed {
@@ -5575,7 +5575,7 @@ body.menu-open .chat {
 
 .footer-pitch h2 .accent {
   font-family: var(--serif);
-  font-style: italic;
+  font-style: normal;
   font-weight: 400;
   letter-spacing: -0.02em;
 }
@@ -5795,7 +5795,7 @@ body:has(.contact-form) .footer-pitch {
   display: block;
   text-align: center;
   font-family: var(--serif);
-  font-style: italic;
+  font-style: normal;
   font-size: clamp(160px, 22vw, 320px);
   line-height: 1;
   color: var(--orange);
@@ -6698,4 +6698,83 @@ body:has(.contact-form) .footer-pitch {
   .hy-quote blockquote {
     font-size: 16px;
   }
+}
+
+/* =====================================================================
+   Eén lettertype overal (Poppins). Accenten blijven oranje, maar zonder
+   ander lettertype; gewichten zijn hierop afgestemd.
+   ===================================================================== */
+em,
+i {
+  font-style: normal;
+}
+
+.display .accent,
+.statement .accent,
+.footer-pitch h2 .accent {
+  font-weight: inherit;
+  letter-spacing: inherit;
+}
+
+.hy-cta-title .accent {
+  font-weight: 400;
+}
+
+.hy-serif {
+  font-weight: 700;
+  letter-spacing: -0.045em;
+}
+
+.hy-condensed {
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.svc-counter strong,
+.pm-rating strong,
+.hy-rating strong,
+.hy-score > strong {
+  font-weight: 700;
+  letter-spacing: -0.06em;
+}
+
+.pm-row-n {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.hy-quote-mark {
+  top: -8px;
+  font-size: 120px;
+  font-weight: 800;
+}
+
+.hy-hero-mark {
+  font-weight: 800;
+}
+
+.mono,
+.eyebrow,
+.eyebrow-link,
+.hy-paren,
+.hy-tag-btn,
+.hy-band em,
+.pm-case-top,
+.svc-card-top,
+.hy-role-kind,
+.hy-contact-lines small,
+.hy-contact-partner small,
+.mini-chart small,
+.footer-top h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.scribble {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Anton, Caveat, JetBrains_Mono, Playfair_Display, Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
@@ -10,10 +10,6 @@ import { getDict, hasLocale, locales } from "@/lib/i18n";
 import "../globals.css";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"], variable: "--font-poppins" });
-const caveat = Caveat({ subsets: ["latin"], weight: ["500", "600", "700"], variable: "--font-caveat" });
-const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-mono-jb" });
-const anton = Anton({ subsets: ["latin"], weight: "400", variable: "--font-anton" });
-const playfair = Playfair_Display({ subsets: ["latin"], style: ["normal", "italic"], weight: ["400", "700"], variable: "--font-playfair" });
 
 export const generateStaticParams = () => locales.map((lang) => ({ lang }));
 
@@ -34,7 +30,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
   const dict = getDict(lang);
 
   return (
-    <html lang={lang} className={`${poppins.variable} ${caveat.variable} ${mono.variable} ${playfair.variable} ${anton.variable}`}>
+    <html lang={lang} className={poppins.variable}>
       <body>
         <I18nProvider lang={lang} dict={dict}>
           <Header />
