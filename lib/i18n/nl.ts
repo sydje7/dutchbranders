@@ -50,6 +50,9 @@ const nl = {
     cookies: "Cookies",
     vat: "BTW",
     coc: "KvK",
+    pitch: "Klaar om *online te groeien*?",
+    pitchText: "Vraag een gratis analyse aan of bel ons even. We denken graag met je mee.",
+    toTop: "Naar boven",
   },
 
   chat: { title: "Vrijblijvend sparren?", sub: "Ontdek je online kansen" },
@@ -60,7 +63,7 @@ const nl = {
   },
 
   reviewsSection: {
-    title: "Geen verkooppraatje, maar\n*ervaringen* van klanten.",
+    title: "Geen verkooppraatje,\nmaar *ervaringen* van klanten.",
     sub: "Wat ondernemers zeggen over samenwerken met Dutch Branders.",
     googleReview: "Google review",
     readAll: "Lees alle reviews op Google",
@@ -228,165 +231,76 @@ const nl = {
       firerocket: "Terrasverwarming · Webshop",
     },
     logosLabel: "Ondernemers die ons voorgingen",
-    motto: {
-      label: "Ons motto",
-      title: "Samen online\ngroeien naar\n*succes*.",
-      text: "Wij geloven dat groei pas echt ontstaat als je samenwerkt. Geen bureau op afstand, maar een team dat meedenkt, doorpakt en blijft verbeteren. Jouw groei is onze maatstaf voor succes.",
-      button: "Lees ons verhaal",
-      rating: "**5/5** · Klanten beoordelen ons als uitstekend",
-      stat1: { value: "100+", label: "ondernemers geholpen" },
-      stat2: { value: "Gem. 50%", label: "meer rendement" },
+    bento: {
+      title: "Voor ondernemers die willen *groeien*",
+      a: { t: "Voor elk bedrijf de juiste online oplossing", d: "We beginnen met een gratis analyse: hoe word je gevonden, wat doen je concurrenten en waar liggen je kansen? Daarna kiezen we samen de aanpak die past." },
+      b: { t: "Websites en campagnes die converteren", d: "Een website die naadloos aansluit op je campagnes zorgt voor meer en betere aanvragen. Ben jij daar klaar voor?" },
+      c: { t: "Gebouwd voor ondernemers uit heel Nederland", d: "Van tandarts tot autobedrijf en van restaurant tot webshop: we kennen de branches en weten wat werkt." },
+      d: { t: "Een klein bureau met grote ideeën", d: "Een nieuwe website, beter gevonden worden of slimmer adverteren? Bij ons zit alles onder één dak. Kom maar op!", button: "Plan een kennismaking" },
+      pills: ["Analyse", "Strategie", "Webdesign", "SEO", "Google Ads", "Huisstijl"],
     },
-    team: {
-      label: "Eerst analyse, dan actie",
-      title: "Je eigen online *marketingafdeling*, zonder eigen team.",
-      text: "Webdesign, SEO, Google Ads en statistieken werken bij ons naadloos samen. Je krijgt specialisten die meedenken als je eigen marketingafdeling, voor een fractie van de kosten. En we beginnen altijd met een gratis analyse van je online positie.",
-      features: [
-        { t: "Geen standaard website", d: "Elke website ontwerpen we rond jouw doelgroep en doelen, zodat bezoekers **sneller contact opnemen**." },
-        { t: "Gevonden worden in Google", d: "SEO en Google Ads zorgen dat je klanten jou vinden **op het moment dat ze zoeken**." },
-        { t: "Meten, bijsturen en groeien", d: "We meten wat werkt en blijven verbeteren. Zo levert je website **steeds meer op**." },
+    manifesto: {
+      label: "(Werkwijze)",
+      title: "Geen standaard websites. Wel meer klanten.",
+      text: "Gemiddeld staat je nieuwe website binnen 3 weken online. Daarna stoppen we niet: we meten, sturen bij en groeien met je mee.",
+      columns: [
+        { t: "Analyse", items: ["Gratis analyse online positie", "Doelgroep en concurrenten", "Kansen in Google", "Offerte op maat"] },
+        { t: "Bouwen", items: ["Ontwerp in jouw huisstijl", "Teksten die overtuigen", "Snel en mobielvriendelijk", "SEO vanaf dag één"] },
+        { t: "Groeien", items: ["Google Ads-campagnes", "Doorlopende SEO", "Statistieken en rapportage", "Persoonlijk advies"] },
       ],
+      button: "Vertel me meer",
     },
     proof: {
-      title: "Bewezen aanpak, *tevreden* klanten.",
-      mainTitle: "100+ ondernemers\ngingen je voor.",
-      mainText: "Met meer dan 10 jaar ervaring weten we wat nodig is om een bedrijf online zichtbaar te maken en klanten op te leveren.",
-      inboxSubject: "Nieuwe offerteaanvraag",
-      yesterday: "Gisteren",
-      inboxTitle: "Klaar voor meer aanvragen?",
-      inboxText: "Je bedrijf draait, maar online zit er meer in. Wij helpen je die volgende stap te zetten.",
-      bannerTitle: "Alleen een website, of alles uit handen?",
-      bannerText: "Begin met een website en breid uit met SEO, Google Ads en meer wanneer je er klaar voor bent. Je krijgt altijd eerst een offerte op maat.",
-      bannerButton: "Bekijk de pakketten",
+      text: "We combineren webdesign, vindbaarheid en advertenties tot websites die echt iets opleveren. Persoonlijk, betrokken en met korte lijnen.",
+      button: "Plan een kennismaking",
     },
-    servicesBlock: {
-      label: "Diensten",
-      title: "Alles wat je nodig\nhebt om *online* te\ngroeien.",
-      all: "Alle diensten",
+    stats: [
+      { v: "100+", l: "ondernemers geholpen" },
+      { v: "10+", l: "jaar ervaring" },
+      { v: "3 weken", l: "gemiddeld tot livegang" },
+      { v: "5/5", l: "klantbeoordeling" },
+    ],
+    work: {
+      label: "Recent werk",
+      title: "Websites waar we *trots* op zijn.",
+      all: "Bekijk meer projecten",
+      visit: "Bekijk website",
     },
-    cases: {
-      label: "Cases",
-      title: "Van uitdaging naar\n*resultaat*.",
-      all: "Alle cases",
-      challenge: "De uitdaging",
-      approach: "Onze aanpak",
+    serviceStack: {
+      label: "Onze diensten",
+      title: "Alles wat je nodig hebt om *online* te groeien.",
+      more: "Meer over",
+    },
+    reviews: {
+      label: "Klanten aan het woord",
+      title: "Wat ondernemers *over ons* zeggen.",
       items: [
         {
-          tab: "Jurist & Bewind BV",
-          mock: "jb",
-          sector: "Bewindvoering",
-          title: "Positie 1 in Google, met een lager budget",
-          challenge:
-            "Jurist & Bewind wilde beter gevonden worden door mensen die hulp zoeken bij hun financiën, zonder steeds meer uit te geven aan advertenties.",
-          approach:
-            "We vernieuwden de website en namen het beheer van Google Ads over. Door scherpere campagnes en betere landingspagina’s kwam het budget beter terecht.",
-          metrics: [
-            { value: "Positie 1", label: "in Google" },
-            { value: "1+ jaar", label: "stabiel resultaat" },
-            { value: "Lager", label: "advertentiebudget" },
-          ],
+          text: "We hadden een nieuwe website nodig. Dutch Branders dacht mee over online verkoop, social media en e-mailmarketing. Zeer tevreden!",
+          name: "Studio FHS",
+          role: "Schoonheidssalon",
         },
         {
-          tab: "Studio FHS",
-          mock: "fhs",
-          sector: "Schoonheidssalon",
-          title: "Van website naar online verkoopkanaal",
-          challenge:
-            "Studio FHS had een nieuwe website nodig die past bij de rustige, luxe uitstraling van de salon en die ook online producten verkoopt.",
-          approach:
-            "We ontwierpen een website met geïntegreerde webshop en dachten mee over social media en e-mailmarketing, zodat klanten vaker terugkomen.",
-          metrics: [
-            { value: "[+x%]", label: "meer boekingen" },
-            { value: "Webshop", label: "online verkoop" },
-            { value: "E-mail", label: "marketing" },
-          ],
-        },
-        {
-          tab: "Extremos Amsterdam",
-          mock: "ex",
-          sector: "Dansschool",
-          title: "Een volle dansvloer dankzij gerichte campagnes",
-          challenge:
-            "Extremos wilde meer nieuwe leerlingen aantrekken voor salsa- en bachatalessen in Amsterdam, met een website die de energie van de school uitstraalt.",
-          approach:
-            "We bouwden een opvallende website op maat en zetten online campagnes op die precies de juiste doelgroep in Amsterdam bereiken.",
-          metrics: [
-            { value: "[+x]", label: "nieuwe leerlingen" },
-            { value: "Campagnes", label: "online" },
-            { value: "Website", label: "op maat" },
-          ],
-        },
-      ],
-    },
-    personal: {
-      label: "Persoonlijk en betrokken",
-      title: "Al meer dan 10 jaar helpen we\n*ondernemers* online groeien.",
-      text: "Dutch Branders combineert webdesign, vindbaarheid en advertenties onder één dak. We werken niet voor jou, maar mét jou: met korte lijnen, eerlijk advies en scherpe tarieven. Jouw groei is onze maatstaf voor succes.",
-      usps: ["Gratis analyse van je online positie", "Officiële Google Partner", "Alles onder één dak"],
-      button: "Analyse aanvragen",
-    },
-    pricing: {
-      title: "Wat past bij *jouw bedrijf*?",
-      text: "Een goede website is geen kostenpost, maar een investering. Begin met de basis of laat alles uit handen nemen.",
-      popular: "Meest gekozen!",
-      basic: {
-        name: "Website",
-        text: "Voor ondernemers die snel professioneel online willen staan en gevonden willen worden.",
-        items: ["Gratis analyse vooraf", "Website in jouw huisstijl", "Mobielvriendelijk en snel", "Basis SEO-inrichting", "Zelf aan te passen in WordPress", "Online in 3 weken"],
-      },
-      full: {
-        name: "Compleet",
-        text: "Voor bedrijven die willen opschalen en alles uit handen willen geven.",
-        items: ["Strategie en groeiplan", "Website op maat", "Doorlopende SEO", "Google Ads-beheer", "Statistieken en rapportage", "Huisstijl en drukwerk"],
-      },
-      roi: {
-        title: "Wat kan je website opleveren?",
-        text: "Vul in wat een klant gemiddeld waard is en zie wat extra klanten per jaar betekenen.",
-        value: "Gemiddelde klantwaarde",
-        scenarios: "Drie scenario's (indicatie)",
-        perYear: "per jaar",
-        items: [
-          { name: "Voorzichtig", label: "+1 klant p/m", n: 1 },
-          { name: "Realistisch", label: "+5 klanten p/m", n: 5 },
-          { name: "Groei", label: "+20 klanten p/m", n: 20 },
-        ],
-      },
-    },
-    clients: {
-      label: "Klanten",
-      quote: "“We hadden een nieuwe website nodig. Dutch Branders dacht mee over online verkoop, social media en e-mailmarketing.",
-      quoteEnd: "Zeer tevreden!",
-      quoteName: "Studio FHS",
-      quoteRole: "Schoonheidssalon",
-      cards: [
-        {
-          text: "“Onze Google Ads en website worden beheerd door Dutch Branders. Al langer dan een jaar halen we positie 1, met een lager budget dan voorheen.”",
+          text: "Onze Google Ads en website worden beheerd door Dutch Branders. Al langer dan een jaar halen we positie 1, met een lager budget dan voorheen.",
           name: "Jurist & Bewind BV",
           role: "Bewindvoering",
         },
         {
-          text: "“Dutch Branders bouwt mooie websites, denkt graag mee in de business en zet goede campagnes op.”",
+          text: "Dutch Branders bouwt mooie websites, denkt graag mee in de business en zet goede campagnes op.",
           name: "Extremos Amsterdam",
           role: "Salsa & bachata",
         },
       ],
     },
     faq: {
+      label: "Veelgestelde vragen",
       title: "Goede *vraag*, hier is het antwoord.",
-      text: "Twijfel je nog? Hieronder staan de vragen die we het vaakst krijgen.",
-    },
-    trust: {
-      title: "Erkend en *vertrouwd*.",
-      items: [
-        { icon: "shield", t: "Google Partner", d: "Officieel gecertificeerd voor Google Ads" },
-        { icon: "10+", t: "10+ jaar ervaring", d: "In webdesign en online marketing" },
-        { icon: "100+", t: "100+ ondernemers", d: "Gingen je voor in uiteenlopende branches" },
-        { icon: "[ ]", t: "[Keurmerk of award]", d: "[Toelichting, bijvoorbeeld een vermelding of certificering]" },
-      ],
+      text: "Twijfel je nog? Hieronder staan de vragen die we het vaakst krijgen. Staat jouw vraag er niet tussen? Bel of mail ons gerust.",
     },
     leadSection: {
-      title: "Zie waar jouw\nonline kansen\nliggen.",
-      text: "Benieuwd wat een nieuwe website, SEO of Google Ads voor jouw bedrijf kan doen? Vul het formulier in of neem direct contact op.",
+      label: "Gratis analyse",
+      title: "Interesse?\n*Laten we kennismaken.*",
+      text: "Benieuwd wat een nieuwe website, SEO of Google Ads voor jouw bedrijf kan doen? Vul het formulier in, dan krijg je binnen één werkdag reactie.",
     },
     jobs: {
       label: "Werken bij",
@@ -439,7 +353,6 @@ const nl = {
     metaDescription: "Dutch Branders is een team van webdesigners en online marketeers. Al meer dan 10 jaar helpen we ondernemers online groeien.",
     title: "Het team achter\njouw *online groei*.",
     lead: "Dutch Branders is een team van webdesigners en online marketeers. We werken niet voor jou, maar mét jou, met één doel: jouw bedrijf online laten groeien.",
-    scribble: "Zo ziet een website\nvan ons eruit.",
     story: {
       label: "Ons verhaal",
       title: "Al meer dan 10 jaar helpen we *ondernemers* online groeien.",

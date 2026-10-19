@@ -1,17 +1,15 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+/* eslint-disable @next/next/no-img-element */
 import Carousel from "@/components/ProjectCarousel";
-import CasesTabs from "@/components/CasesTabs";
-import RoiCalculator from "@/components/RoiCalculator";
 import Faq from "@/components/Faq";
+import ServiceStack from "@/components/ServiceStack";
 import LogoMarquee from "@/components/LogoMarquee";
 import LeadForm from "@/components/LeadForm";
 import Rich from "@/components/Rich";
-import { Mock, type MockId } from "@/components/Mockups";
-import { Avatar, looks } from "@/components/Avatar";
 import { ReviewLine } from "@/components/Sections";
-import { ArrowUpRight, CheckCircle, Crown, ScribbleArrow, Shield, Star, Stars } from "@/components/Icons";
-import { contact } from "@/lib/data";
+import { ArrowUpRight, Crown, GoogleG, ScribbleArrow, Stars } from "@/components/Icons";
+import { contact, googleReviewsUrl, projects } from "@/lib/data";
 import { getDict, hasLocale, localePath } from "@/lib/i18n";
 
 /* Echte klantwebsites (screenshots in /public/klanten) */
@@ -24,14 +22,21 @@ const heroProjects = [
   { id: "firerocket", name: "FireRocket", url: "https://firerocket.nl/" },
 ] as const;
 
-const inboxTimes = [
-  { t: "10:42", star: false },
-  { t: "09:31", star: true },
-  { t: "08:15", star: false },
-  { t: "", star: false },
-  { t: "", star: false, fade: true },
-  { t: "", star: false, fade: true },
+/* Lijniconen rond de cirkel in het bento-blok */
+const ico = (d: string) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <path d={d} />
+  </svg>
+);
+const orbitIcons = [
+  ico("M3 5h18v11H3zM8 20h8M12 16v4"),
+  ico("M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM21 21l-5-5"),
+  ico("M4 20V10M10 20V4M16 20v-7M22 20H2"),
+  ico("M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1zM16 9a4 4 0 0 1 0 6"),
 ];
+
+/* Uitgelichte projecten in "Recent werk" */
+const featured = ["dentville", "denk", "bkp", "atak"].map((slug) => projects.find((p) => p.slug === slug)!);
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
@@ -39,7 +44,6 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   const d = getDict(lang);
   const h = d.home;
   const L = (p: string) => localePath(lang, p);
-  const svc = d.services;
 
   return (
     <>
@@ -75,7 +79,6 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         >
           {heroProjects.map((p) => (
             <a href={p.url} target="_blank" rel="noopener noreferrer" className="project-card" key={p.id}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={`/klanten/${p.id}.jpg`} alt={`Website van ${p.name}`} loading="lazy" decoding="async" className="shot" />
               <div className="caption">
                 <strong>{p.name}</strong>
@@ -90,366 +93,255 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </div>
       </section>
 
-      {/* MOTTO */}
-      <section className="section-sm">
+      {/* BENTO – WPmasters */}
+      <section className="hy-bento">
         <div className="container">
-          <div className="motto">
-            <div>
-              <span className="label label-orange">{h.motto.label}</span>
-              <h2 className="h1">
-                <Rich text={h.motto.title} />
-              </h2>
-              <p>{h.motto.text}</p>
-              <Link href={L("/over-ons")} className="btn btn-orange btn-sm">
-                {h.motto.button}
-              </Link>
-            </div>
-            <div className="stat-stack">
-              <div className="stat-box white">
-                <Stars />
-                <div>
-                  <Rich text={h.motto.rating} />
-                </div>
-              </div>
-              {[h.motto.stat1, h.motto.stat2].map((s) => (
-                <div className="stat-box" key={s.label}>
-                  <strong>{s.value}</strong>
-                  <span>{s.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* EIGEN MARKETINGAFDELING */}
-      <section className="section">
-        <div className="container split">
-          <div>
-            <span className="label">{h.team.label}</span>
-            <h2 className="h2">
-              <Rich text={h.team.title} />
-            </h2>
-            <p className="body">{h.team.text}</p>
-            <Link href={L("/contact")} className="btn btn-navy btn-sm">
-              {d.common.freeAnalysis}
-            </Link>
-          </div>
-          <div className="feature-list">
-            {h.team.features.map((f) => (
-              <div className="feature" key={f.t}>
-                <h3>
-                  <CheckCircle /> {f.t}
-                </h3>
-                <p>
-                  <Rich text={f.d} />
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* BEWEZEN AANPAK */}
-      <section style={{ paddingBottom: 90 }}>
-        <div className="container">
-          <h2 className="h2 proof-title" style={{ fontSize: "clamp(30px, 3.8vw, 46px)" }}>
-            <Rich text={h.proof.title} />
+          <h2 className="hy-bento-title" data-reveal>
+            <Rich text={h.bento.title} />
           </h2>
-          <div className="proof">
-            <div className="proof-main">
-              <h3>
-                <Rich text={h.proof.mainTitle} />
-              </h3>
-              <p>{h.proof.mainText}</p>
-              <Link href={L("/werk")} className="btn btn-orange btn-sm">
-                {d.common.viewWork}
-              </Link>
-              <div className="phone">
-                <div className="screen">
-                  <Mock id="fhs" style={{ fontSize: 6.2, paddingTop: 10 }} />
-                </div>
+          <div className="hy-grid">
+            <article className="hy-card hy-a" data-reveal>
+              <div className="hy-card-text">
+                <h3>{h.bento.a.t}</h3>
+                <p>{h.bento.a.d}</p>
               </div>
-            </div>
-            <div className="inbox-card">
-              <div className="inbox">
-                {inboxTimes.map((r, i) => (
-                  <div className={"inbox-row" + (r.fade ? " fade" : "")} key={i}>
-                    <span className="box" />
-                    <Star on={r.star} />
-                    <b>jouwbedrijf.nl</b>
-                    <span className="s">{h.proof.inboxSubject}</span>
-                    <span className="t">{r.t || h.proof.yesterday}</span>
-                  </div>
+              <div className="hy-orbit" aria-hidden>
+                <span className="ring" />
+                <span className="ring r2" />
+                {orbitIcons.map((ico, i) => (
+                  <span className={"ico i" + i} key={i}>
+                    {ico}
+                  </span>
                 ))}
               </div>
-              <h3>{h.proof.inboxTitle}</h3>
-              <p>{h.proof.inboxText}</p>
-            </div>
-            <div className="proof-banner">
-              <h3>{h.proof.bannerTitle}</h3>
-              <p>{h.proof.bannerText}</p>
-              <div className="btn-row">
-                <Link href={L("/contact")} className="btn btn-navy btn-sm">
-                  {d.common.freeAnalysis}
+            </article>
+            <article className="hy-card hy-b" data-reveal>
+              <div className="hy-card-text">
+                <h3>{h.bento.b.t}</h3>
+                <p>{h.bento.b.d}</p>
+              </div>
+              <div className="hy-charts" aria-hidden>
+                <svg viewBox="0 0 220 120" className="hy-line">
+                  <path d="M10 100 L50 88 L90 92 L130 60 L170 52 L210 20" fill="none" stroke="currentColor" strokeWidth="2.5" />
+                  <path d="M10 100 L50 88 L90 92 L130 60 L170 52 L210 20 L210 115 L10 115 Z" fill="currentColor" opacity="0.18" />
+                </svg>
+                <div className="hy-donut" />
+              </div>
+            </article>
+            <article className="hy-card hy-c" data-reveal>
+              <div className="hy-card-text">
+                <h3>{h.bento.c.t}</h3>
+                <p>{h.bento.c.d}</p>
+              </div>
+              <div className="hy-strip" aria-hidden>
+                {(["denk", "vanstalen", "village", "lust109"] as const).map((id) => (
+                  <img key={id} src={`/klanten/${id}.jpg`} alt="" loading="lazy" decoding="async" />
+                ))}
+              </div>
+            </article>
+            <article className="hy-card hy-d" data-reveal>
+              <div className="hy-card-text">
+                <h3>{h.bento.d.t}</h3>
+                <p>{h.bento.d.d}</p>
+                <Link href={L("/contact")} className="btn btn-orange btn-sm">
+                  {h.bento.d.button}
                 </Link>
-                <a href="#pakketten" className="btn btn-outline btn-sm">
-                  {h.proof.bannerButton}
-                </a>
               </div>
-            </div>
+              <div className="hy-pills" aria-hidden>
+                {h.bento.pills.map((x, i) => (
+                  <span key={x} className={i === 3 ? "on" : ""}>
+                    {x}
+                  </span>
+                ))}
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
-      {/* DIENSTEN */}
-      <section className="section">
+      {/* RECENT WERK – Webfluencer */}
+      <section className="hy-work">
         <div className="container">
-          <div className="section-head">
-            <div>
-              <span className="label">{h.servicesBlock.label}</span>
-              <h2 className="h2">
-                <Rich text={h.servicesBlock.title} />
-              </h2>
-            </div>
-            <Link href={L("/diensten")} className="link-arrow">
-              {h.servicesBlock.all} <ArrowUpRight />
+          <div className="hy-head" data-reveal>
+            <h2 className="hy-serif">{h.work.label}</h2>
+            <Link href={L("/werk")} className="eyebrow-link">
+              {h.work.all} <ArrowUpRight />
             </Link>
           </div>
-          <div className="svc-grid">
-            <Link href={L(`/diensten#${svc[0].slug}`)} className="svc big">
-              <span className="mono">01</span>
-              <span className="go">
-                <ArrowUpRight />
-              </span>
-              <div>
-                <h3>{svc[0].title}</h3>
-                <p style={{ maxWidth: 330 }}>{svc[0].short}</p>
-                <div className="chips">
-                  {svc[0].chips.map((c) => (
-                    <span className="chip" key={c}>
-                      {c}
+          <div className="pm-cases">
+            {featured.map((p, i) => {
+              const info = d.projects[p.slug as keyof typeof d.projects];
+              return (
+                <a key={p.slug} href={p.url} target="_blank" rel="noopener noreferrer" className="pm-case" data-reveal>
+                  <img src={`/klanten/${p.slug}.jpg`} alt={`Website van ${p.name}`} loading="lazy" decoding="async" />
+                  <div className="pm-case-top" aria-hidden>
+                    <span>{String(i + 1).padStart(2, "0")}</span>
+                    <span>{info.branche}</span>
+                  </div>
+                  <div className="pm-case-foot">
+                    <div>
+                      <h3>{p.name}</h3>
+                      <div className="pm-tags">
+                        <span>{info.sector}</span>
+                        {info.services.map((x) => (
+                          <span key={x}>{x}</span>
+                        ))}
+                      </div>
+                    </div>
+                    <span className="pm-go" aria-label={h.work.visit}>
+                      <ArrowUpRight />
                     </span>
-                  ))}
-                </div>
-              </div>
-            </Link>
-            <Link href={L(`/diensten#${svc[1].slug}`)} className="svc">
-              <span className="mono">02</span>
-              <div>
-                <h3>{svc[1].title}</h3>
-                <p>{svc[1].short}</p>
-              </div>
-            </Link>
+                  </div>
+                </a>
+              );
+            })}
           </div>
-          <div className="svc-grid-row2">
-            {svc.slice(2).map((s, i) => (
-              <Link href={L(`/diensten#${s.slug}`)} className={"svc" + (i === 2 ? " orange" : "")} key={s.slug}>
-                <span className="mono">0{i + 3}</span>
-                <div>
-                  <h3>{s.title}</h3>
-                  <p>{s.short}</p>
-                </div>
-              </Link>
+        </div>
+      </section>
+
+      {/* DIENSTEN – Webfluencer */}
+      <section className="pm pm-dark pm-services">
+        <div className="container">
+          <ServiceStack />
+        </div>
+      </section>
+
+      {/* MANIFEST – We Are Boring */}
+      <section className="hy-manifest">
+        <div className="container">
+          <div className="hy-manifest-top" data-reveal>
+            <span className="hy-paren">{h.manifesto.label}</span>
+            <h2 className="hy-condensed">{h.manifesto.title}</h2>
+          </div>
+          <div className="hy-columns">
+            <Link href={L("/contact")} className="hy-tag-btn" data-reveal>
+              {h.manifesto.button} <ArrowUpRight />
+            </Link>
+            {h.manifesto.columns.map((c, i) => (
+              <div key={c.t} data-reveal style={{ transitionDelay: `${i * 90}ms` }}>
+                <span className="hy-paren">(0{i + 1})</span>
+                <h3 className="hy-condensed">{c.t}</h3>
+                <ul>
+                  {c.items.map((x) => (
+                    <li key={x}>{x}</li>
+                  ))}
+                </ul>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CASES */}
-      <section className="section" style={{ paddingTop: 30 }}>
-        <div className="container">
-          <div className="section-head" style={{ marginBottom: 22 }}>
-            <div>
-              <span className="label">{h.cases.label}</span>
-              <h2 className="h2" style={{ fontSize: "clamp(30px, 3.8vw, 44px)" }}>
-                <Rich text={h.cases.title} />
+      {/* CIJFERS – Studio Brabo */}
+      <section className="hy-proof">
+        <div className="container hy-proof-grid">
+          <div className="hy-proof-img" data-reveal>
+            <img src="/klanten/atak.jpg" alt="" loading="lazy" decoding="async" />
+          </div>
+          <div data-reveal>
+            <p className="hy-proof-text">{h.proof.text}</p>
+            <div className="hy-proof-stats">
+              {h.stats.map((x) => (
+                <div key={x.l}>
+                  <strong>{x.v}</strong>
+                  <span>{x.l}</span>
+                </div>
+              ))}
+            </div>
+            <Link href={L("/contact")} className="hy-tag-btn light">
+              {h.proof.button} <ArrowUpRight />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* REVIEWS – WPmasters */}
+      <section className="hy-reviews">
+        <Carousel
+          trackClass="track hy-review-track"
+          orange
+          head={
+            <div data-reveal>
+              <span className="eyebrow">{h.reviews.label}</span>
+              <h2 className="hy-h2">
+                <Rich text={h.reviews.title} />
               </h2>
             </div>
-            <Link href={L("/werk")} className="btn btn-outline btn-sm">
-              {h.cases.all}
-            </Link>
-          </div>
-          <CasesTabs />
-        </div>
-      </section>
-
-      {/* PERSOONLIJK */}
-      <section style={{ paddingBottom: 90 }}>
-        <div className="container">
-          <span className="label">{h.personal.label}</span>
-          <h2 className="h2" style={{ fontSize: "clamp(30px, 3.8vw, 44px)" }}>
-            <Rich text={h.personal.title} />
-          </h2>
-          <p className="body" style={{ maxWidth: 680, marginTop: 20 }}>
-            {h.personal.text}
-          </p>
-          <div className="usp-bar">
-            <ul>
-              {h.personal.usps.map((u) => (
-                <li key={u}>
-                  <CheckCircle /> {u}
-                </li>
-              ))}
-            </ul>
-            <Link href={L("/contact")} className="btn btn-orange btn-sm">
-              {h.personal.button}
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* PAKKETTEN */}
-      <section className="section" id="pakketten" style={{ paddingTop: 40, scrollMarginTop: 60 }}>
-        <div className="container">
-          <h2 className="h2" style={{ fontSize: "clamp(30px, 3.8vw, 44px)" }}>
-            <Rich text={h.pricing.title} />
-          </h2>
-          <p className="body" style={{ maxWidth: 560, marginTop: 10 }}>
-            {h.pricing.text}
-          </p>
-          <div className="pricing">
-            <div className="price-card featured">
-              <span className="ribbon">{h.pricing.popular}</span>
-              <h3>{h.pricing.basic.name}</h3>
-              <p>{h.pricing.basic.text}</p>
-              <ul className="price-list">
-                {h.pricing.basic.items.map((x) => (
-                  <li key={x}>
-                    <CheckCircle /> {x}
-                  </li>
-                ))}
-              </ul>
-              <Link href={L("/contact")} className="btn btn-navy">
-                {d.common.askQuote}
-              </Link>
-            </div>
-            <RoiCalculator />
-            <div className="price-card">
-              <h3>{h.pricing.full.name}</h3>
-              <p>{h.pricing.full.text}</p>
-              <ul className="price-list">
-                {h.pricing.full.items.map((x) => (
-                  <li key={x}>
-                    <CheckCircle /> {x}
-                  </li>
-                ))}
-              </ul>
-              <Link href={L("/contact")} className="btn btn-navy">
-                {d.common.askQuote}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* KLANTEN */}
-      <section className="section" style={{ paddingTop: 20 }}>
-        <div className="container">
-          <span className="label">{h.clients.label}</span>
-          <blockquote className="big-quote" style={{ margin: 0 }}>
-            {h.clients.quote}
-            <br />
-            <em>{h.clients.quoteEnd}</em>”
-          </blockquote>
-          <div className="founder" style={{ marginTop: 20 }}>
-            <Avatar look={looks.long} />
-            <div>
-              <strong style={{ fontSize: 14 }}>{h.clients.quoteName}</strong>
-              <span style={{ fontSize: 12 }}>{h.clients.quoteRole}</span>
-            </div>
-          </div>
-          <div className="quote-grid">
-            {h.clients.cards.map((c) => (
-              <div className="quote-card" key={c.name}>
-                {c.text}
-                <footer>
-                  <b>{c.name}</b> · {c.role}
-                </footer>
+          }
+        >
+          {h.reviews.items.map((r) => (
+            <figure className="hy-rv" key={r.name}>
+              <GoogleG className="hy-rv-g" />
+              <div className="hy-rv-top">
+                <span className="hy-rv-logo">{r.name.slice(0, 1)}</span>
+                <div>
+                  <strong>{r.name}</strong>
+                  <span>{r.role}</span>
+                </div>
               </div>
-            ))}
-          </div>
+              <Stars />
+              <blockquote>“{r.text}”</blockquote>
+              <span className="hy-rv-slash" aria-hidden />
+            </figure>
+          ))}
+        </Carousel>
+        <div className="container hy-reviews-foot">
+          <a href={googleReviewsUrl} target="_blank" rel="noopener noreferrer" className="eyebrow-link">
+            <GoogleG /> {d.reviewsSection.readAll} <ArrowUpRight />
+          </a>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="section" style={{ paddingTop: 40 }}>
-        <div className="container">
-          <h2 className="h2" style={{ fontSize: "clamp(30px, 3.8vw, 44px)" }}>
-            <Rich text={h.faq.title} />
-          </h2>
-          <p className="body" style={{ marginTop: 10 }}>
-            {h.faq.text}
-          </p>
-          <Faq />
-
-          <h2 className="h3" style={{ marginTop: 90 }}>
-            <Rich text={h.trust.title} />
-          </h2>
-          <div className="trust">
-            {h.trust.items.map((x) => (
-              <div className="trust-card" key={x.t}>
-                <span className="trust-ico">{x.icon === "shield" ? <Shield /> : x.icon}</span>
-                <div>
-                  <strong>{x.t}</strong>
-                  <span>{x.d}</span>
-                </div>
-              </div>
-            ))}
+      <section className="pm pm-faq">
+        <div className="container faq-split">
+          <div className="faq-side" data-reveal>
+            <span className="eyebrow">{h.faq.label}</span>
+            <h2 className="display">
+              <Rich text={h.faq.title} />
+            </h2>
+            <p className="pm-text">{h.faq.text}</p>
+            <div className="faq-contact">
+              <a href={contact.phoneHref}>{contact.phone}</a>
+              <a href={`mailto:${contact.email}`}>{contact.email}</a>
+            </div>
           </div>
+          <Faq />
         </div>
       </section>
 
-      {/* LEAD */}
-      <section className="lead-section">
-        <div className="container lead-grid">
-          <div>
-            <h2 className="h1">
-              <Rich text={h.leadSection.title} />
-            </h2>
-            <p className="body">{h.leadSection.text}</p>
-            <div className="contact-person">
-              <span className="contact-logo" aria-hidden>db.</span>
-              <div>
-                <strong>Dutch Branders</strong>
-                <br />
-                <a href={`mailto:${contact.email}`}>{contact.email}</a>
-                <br />
-                <a href={contact.phoneHref}>{contact.phone}</a>
-              </div>
+      {/* INTERESSE – WPmasters */}
+      <section className="hy-cta" id="analyse">
+        <div className="container">
+          <h2 className="hy-cta-title" data-reveal>
+            <Rich text={h.leadSection.title} />
+          </h2>
+          <p className="hy-cta-text" data-reveal>
+            {h.leadSection.text}
+          </p>
+          <div className="hy-cta-grid">
+            <div className="hy-cta-lines" data-reveal>
+              <a href={`mailto:${contact.email}`}>{contact.email}</a>
+              <a href={contact.phoneHref}>{contact.phone}</a>
+              <span>{contact.address}</span>
             </div>
+            <LeadForm />
           </div>
-          <LeadForm />
         </div>
       </section>
 
       {/* WERKEN BIJ */}
-      <section className="section" id="werken-bij" style={{ scrollMarginTop: 60 }}>
-        <div className="container jobs">
-          <div className="collage" aria-hidden>
-            <div className="collage-inner">
-              {(["ex", "jb", "tz", "fj", "kb", "fhs", "tz", "ex", "jb"] as const).map((id, i) => (
-                <div className="collage-tile" key={i}>
-                  <Mock id={id} style={{ fontSize: 5.2 }} />
-                </div>
-              ))}
-            </div>
-          </div>
-          <div>
-            <span className="label">{h.jobs.label}</span>
-            <h2 className="h2" style={{ fontSize: "clamp(30px, 3.8vw, 44px)" }}>
+      <section className="pm pm-jobs" id="werken-bij">
+        <div className="container">
+          <Link href={L("/werken-bij")} className="pm-jobs-row" data-reveal>
+            <span className="eyebrow">{h.jobs.label}</span>
+            <h2 className="display">
               <Rich text={h.jobs.title} />
             </h2>
-            <p className="body">{h.jobs.text}</p>
-            <div className="btn-row">
-              <Link href={L("/werken-bij#vacatures")} className="btn btn-navy btn-sm">
-                {h.jobs.vacancies}
-              </Link>
-              <Link href={L("/werken-bij#solliciteren")} className="btn btn-outline btn-sm">
-                {h.jobs.open}
-              </Link>
-            </div>
-          </div>
+            <span className="pm-go">
+              <ArrowUpRight />
+            </span>
+          </Link>
         </div>
       </section>
     </>

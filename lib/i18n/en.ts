@@ -49,6 +49,9 @@ const en: Dict = {
     cookies: "Cookies",
     vat: "VAT",
     coc: "CoC",
+    pitch: "Ready to *grow online*?",
+    pitchText: "Request a free analysis or give us a call. We're happy to think along with you.",
+    toTop: "Back to top",
   },
 
   chat: { title: "Fancy a quick chat?", sub: "Discover your online opportunities" },
@@ -59,7 +62,7 @@ const en: Dict = {
   },
 
   reviewsSection: {
-    title: "No sales pitch, just\nreal *client experiences*.",
+    title: "No sales pitch,\njust real *client experiences*.",
     sub: "What business owners say about working with Dutch Branders.",
     googleReview: "Google review",
     readAll: "Read all reviews on Google",
@@ -216,165 +219,76 @@ const en: Dict = {
       firerocket: "Patio heaters · Webshop",
     },
     logosLabel: "Businesses that went before you",
-    motto: {
-      label: "Our motto",
-      title: "Growing\nonline together\nto *success*.",
-      text: "We believe real growth happens when you work together. Not a distant agency, but a team that thinks along, takes action and keeps improving. Your growth is our measure of success.",
-      button: "Read our story",
-      rating: "**5/5** · Clients rate us as excellent",
-      stat1: { value: "100+", label: "businesses helped" },
-      stat2: { value: "Avg. 50%", label: "higher return" },
+    bento: {
+      title: "For business owners who want to *grow*",
+      a: { t: "The right online solution for every business", d: "We start with a free analysis: how are you found, what are your competitors doing and where are your opportunities? Then we choose the approach that fits, together." },
+      b: { t: "Websites and campaigns that convert", d: "A website that connects seamlessly to your campaigns brings in more and better enquiries. Are you ready for that?" },
+      c: { t: "Built for businesses across the Netherlands", d: "From dentists to car dealers and from restaurants to webshops: we know the industries and what works." },
+      d: { t: "A small agency with big ideas", d: "A new website, better rankings or smarter advertising? With us everything is under one roof. Bring it on!", button: "Plan an introduction" },
+      pills: ["Analysis", "Strategy", "Web design", "SEO", "Google Ads", "Branding"],
     },
-    team: {
-      label: "Analysis first, then action",
-      title: "Your own online *marketing department*, without your own team.",
-      text: "Web design, SEO, Google Ads and analytics work seamlessly together with us. You get specialists who think along like your own marketing department, for a fraction of the cost. And we always start with a free analysis of your online position.",
-      features: [
-        { t: "No standard website", d: "We design every website around your audience and goals, so visitors **get in touch faster**." },
-        { t: "Get found on Google", d: "SEO and Google Ads make sure customers find you **at the moment they search**." },
-        { t: "Measure, adjust and grow", d: "We measure what works and keep improving. That way your website **delivers more and more**." },
+    manifesto: {
+      label: "(How we work)",
+      title: "No standard websites. More customers.",
+      text: "On average your new website is live within 3 weeks. After that we don't stop: we measure, adjust and grow with you.",
+      columns: [
+        { t: "Analyse", items: ["Free online position analysis", "Audience and competitors", "Opportunities in Google", "Tailored quote"] },
+        { t: "Build", items: ["Design in your brand style", "Copy that convinces", "Fast and mobile-friendly", "SEO from day one"] },
+        { t: "Grow", items: ["Google Ads campaigns", "Ongoing SEO", "Analytics and reporting", "Personal advice"] },
       ],
+      button: "Tell me more",
     },
     proof: {
-      title: "Proven approach, *happy* clients.",
-      mainTitle: "100+ businesses\nwent before you.",
-      mainText: "With more than 10 years of experience we know what it takes to make a business visible online and bring in customers.",
-      inboxSubject: "New quote request",
-      yesterday: "Yesterday",
-      inboxTitle: "Ready for more enquiries?",
-      inboxText: "Your business is running, but there's more to gain online. We'll help you take that next step.",
-      bannerTitle: "Just a website, or fully taken care of?",
-      bannerText: "Start with a website and expand with SEO, Google Ads and more whenever you're ready. You always get a tailored quote first.",
-      bannerButton: "View the packages",
+      text: "We combine web design, search visibility and advertising into websites that actually deliver. Personal, involved and with short lines.",
+      button: "Plan an introduction",
     },
-    servicesBlock: {
-      label: "Services",
-      title: "Everything you need\nto grow *online*.",
-      all: "All services",
+    stats: [
+      { v: "100+", l: "businesses helped" },
+      { v: "10+", l: "years of experience" },
+      { v: "3 weeks", l: "average time to launch" },
+      { v: "5/5", l: "client rating" },
+    ],
+    work: {
+      label: "Recent work",
+      title: "Websites we're *proud* of.",
+      all: "View more projects",
+      visit: "View website",
     },
-    cases: {
-      label: "Cases",
-      title: "From challenge to\n*results*.",
-      all: "All cases",
-      challenge: "The challenge",
-      approach: "Our approach",
+    serviceStack: {
+      label: "Our services",
+      title: "Everything you need to grow *online*.",
+      more: "More about",
+    },
+    reviews: {
+      label: "Our clients",
+      title: "What business owners say *about us*.",
       items: [
         {
-          tab: "Jurist & Bewind BV",
-          mock: "jb",
-          sector: "Financial guardianship",
-          title: "Position 1 in Google, with a lower budget",
-          challenge:
-            "Jurist & Bewind wanted to be found more easily by people looking for help with their finances, without spending more and more on advertising.",
-          approach:
-            "We renewed the website and took over Google Ads management. Sharper campaigns and better landing pages made the budget go further.",
-          metrics: [
-            { value: "Position 1", label: "in Google" },
-            { value: "1+ year", label: "stable results" },
-            { value: "Lower", label: "ad budget" },
-          ],
+          text: "We needed a new website. Dutch Branders thought along about online sales, social media and email marketing. Very satisfied!",
+          name: "Studio FHS",
+          role: "Beauty salon",
         },
         {
-          tab: "Studio FHS",
-          mock: "fhs",
-          sector: "Beauty salon",
-          title: "From website to online sales channel",
-          challenge:
-            "Studio FHS needed a new website that matches the calm, luxurious feel of the salon and also sells products online.",
-          approach:
-            "We designed a website with an integrated webshop and helped think about social media and email marketing, so clients return more often.",
-          metrics: [
-            { value: "[+x%]", label: "more bookings" },
-            { value: "Webshop", label: "online sales" },
-            { value: "Email", label: "marketing" },
-          ],
-        },
-        {
-          tab: "Extremos Amsterdam",
-          mock: "ex",
-          sector: "Dance school",
-          title: "A full dance floor thanks to targeted campaigns",
-          challenge:
-            "Extremos wanted to attract more new students for salsa and bachata classes in Amsterdam, with a website that radiates the school's energy.",
-          approach:
-            "We built a striking custom website and set up online campaigns that reach exactly the right audience in Amsterdam.",
-          metrics: [
-            { value: "[+x]", label: "new students" },
-            { value: "Campaigns", label: "online" },
-            { value: "Website", label: "custom-built" },
-          ],
-        },
-      ],
-    },
-    personal: {
-      label: "Personal and committed",
-      title: "For more than 10 years we've helped\n*businesses* grow online.",
-      text: "Dutch Branders combines web design, findability and advertising under one roof. We don't work for you, we work with you: short lines of communication, honest advice and sharp rates. Your growth is our measure of success.",
-      usps: ["Free analysis of your online position", "Official Google Partner", "Everything under one roof"],
-      button: "Request analysis",
-    },
-    pricing: {
-      title: "What suits *your business*?",
-      text: "A good website isn't a cost, it's an investment. Start with the basics or let us take care of everything.",
-      popular: "Most popular!",
-      basic: {
-        name: "Website",
-        text: "For business owners who want to get online professionally and be found quickly.",
-        items: ["Free analysis upfront", "Website in your brand style", "Mobile-friendly and fast", "Basic SEO setup", "Easy to edit in WordPress", "Live in 3 weeks"],
-      },
-      full: {
-        name: "Complete",
-        text: "For businesses that want to scale up and hand everything over.",
-        items: ["Strategy and growth plan", "Custom website", "Ongoing SEO", "Google Ads management", "Analytics and reporting", "Branding and print"],
-      },
-      roi: {
-        title: "What could your website bring in?",
-        text: "Enter what an average customer is worth and see what extra customers mean per year.",
-        value: "Average customer value",
-        scenarios: "Three scenarios (indication)",
-        perYear: "per year",
-        items: [
-          { name: "Cautious", label: "+1 customer p/m", n: 1 },
-          { name: "Realistic", label: "+5 customers p/m", n: 5 },
-          { name: "Growth", label: "+20 customers p/m", n: 20 },
-        ],
-      },
-    },
-    clients: {
-      label: "Clients",
-      quote: "“We needed a new website. Dutch Branders helped us think about online sales, social media and email marketing.",
-      quoteEnd: "Very satisfied!",
-      quoteName: "Studio FHS",
-      quoteRole: "Beauty salon",
-      cards: [
-        {
-          text: "“Our Google Ads and website are managed by Dutch Branders. For more than a year we've been ranking first, with a lower budget than before.”",
+          text: "Our Google Ads and website are managed by Dutch Branders. For over a year we've been ranking #1, with a lower budget than before.",
           name: "Jurist & Bewind BV",
-          role: "Financial guardianship",
+          role: "Financial administration",
         },
         {
-          text: "“Dutch Branders builds beautiful websites, likes to think along about the business and sets up great campaigns.”",
+          text: "Dutch Branders builds beautiful websites, likes to think along about the business and sets up good campaigns.",
           name: "Extremos Amsterdam",
           role: "Salsa & bachata",
         },
       ],
     },
     faq: {
+      label: "FAQ",
       title: "Good *question*, here's the answer.",
-      text: "Still in doubt? Below are the questions we get asked most often.",
-    },
-    trust: {
-      title: "Recognised and *trusted*.",
-      items: [
-        { icon: "shield", t: "Google Partner", d: "Officially certified for Google Ads" },
-        { icon: "10+", t: "10+ years of experience", d: "In web design and online marketing" },
-        { icon: "100+", t: "100+ businesses", d: "Went before you in a wide range of industries" },
-        { icon: "[ ]", t: "[Quality mark or award]", d: "[Explanation, for example a mention or certification]" },
-      ],
+      text: "Still in doubt? Below are the questions we get most often. Can't find yours? Feel free to call or email us.",
     },
     leadSection: {
-      title: "See where your\nonline opportunities\nlie.",
-      text: "Curious what a new website, SEO or Google Ads could do for your business? Fill in the form or contact us directly.",
+      label: "Free analysis",
+      title: "Interested?\n*Let's get acquainted.*",
+      text: "Curious what a new website, SEO or Google Ads could do for your business? Fill in the form and you'll hear from us within one business day.",
     },
     jobs: {
       label: "Careers",
@@ -427,7 +341,6 @@ const en: Dict = {
     metaDescription: "Dutch Branders is a team of web designers and online marketers. For more than 10 years we've helped businesses grow online.",
     title: "The team behind\nyour *online growth*.",
     lead: "Dutch Branders is a team of web designers and online marketers. We don't work for you, we work with you, with one goal: growing your business online.",
-    scribble: "This is what one of\nour websites looks like.",
     story: {
       label: "Our story",
       title: "For more than 10 years we've helped *businesses* grow online.",

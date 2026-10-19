@@ -1,31 +1,7 @@
-import Link from "next/link";
 import Rich from "./Rich";
-import { GoogleG, Stars } from "./Icons";
-import { contact, googleReviewsUrl, reviews } from "@/lib/data";
-import { localePath, type Dict, type Locale } from "@/lib/i18n";
-
-export function CtaBand({ dict, lang }: { dict: Dict; lang: Locale }) {
-  return (
-    <section className="cta-band">
-      <div className="container">
-        <div>
-          <h2>
-            <Rich text={dict.cta.title} />
-          </h2>
-          <p>{dict.cta.text}</p>
-        </div>
-        <div className="btn-row">
-          <Link href={localePath(lang, "/contact")} className="btn btn-navy">
-            {dict.common.freeAnalysis}
-          </Link>
-          <a href={contact.phoneHref} className="btn btn-outline">
-            {dict.common.call} {contact.phone}
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
+import { ArrowUpRight, GoogleG, Stars } from "./Icons";
+import { googleReviewsUrl, reviews } from "@/lib/data";
+import type { Dict, Locale } from "@/lib/i18n";
 
 export function ReviewLine({ dict }: { dict: Dict }) {
   return (
@@ -35,58 +11,57 @@ export function ReviewLine({ dict }: { dict: Dict }) {
   );
 }
 
-export function ReviewsSection({ dict, lang }: { dict: Dict; lang: Locale }) {
+export function ReviewsSection({ dict, lang, light = false }: { dict: Dict; lang: Locale; light?: boolean }) {
   const t = dict.reviewsSection;
   const fmt = (d: string) =>
     new Date(d).toLocaleDateString(lang === "nl" ? "nl-NL" : "en-GB", { day: "numeric", month: "long", year: "numeric" });
-  const initials = (n: string) =>
-    n.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]!.toUpperCase()).join("");
+
+  // Echte Google-reviews als die er zijn, anders de klantreacties van de homepage
+  const quotes = reviews.length
+    ? reviews.map((r) => ({ name: r.name, role: fmt(r.date), text: r.text }))
+    : dict.home.reviews.items;
 
   return (
-    <section className="section" id="reviews">
+    <section className={"hy-reviews hy-quotes" + (light ? " light" : "")} id="reviews">
       <div className="container">
-        <div className="reviews-head">
-          <h2 className="h2">
-            <Rich text={t.title} />
-          </h2>
-          <p>{t.sub}</p>
+        <div className="hy-quotes-head">
+          <div data-reveal>
+            <span className="eyebrow">{dict.home.reviews.label}</span>
+            <h2 className="display">
+              <Rich text={t.title} />
+            </h2>
+            <p className="hy-reviews-sub">{t.sub}</p>
+          </div>
+          <div className="hy-score" data-reveal>
+            <strong>5/5</strong>
+            <div>
+              <Stars />
+              <span>{t.empty}</span>
+              <a href={googleReviewsUrl} target="_blank" rel="noopener noreferrer" className="eyebrow-link">
+                <GoogleG /> {t.readAll} <ArrowUpRight />
+              </a>
+            </div>
+          </div>
         </div>
 
-        {reviews.length > 0 ? (
-          <>
-            <div className="reviews">
-              {reviews.map((r) => (
-                <article className="review" key={r.name + r.date}>
-                  <div className="review-head">
-                    <span className="review-ini">{initials(r.name)}</span>
-                    <div>
-                      <strong>{r.name}</strong>
-                    </div>
-                  </div>
-                  <Stars />
-                  <p>{r.text}</p>
-                  <div className="review-foot">
-                    <GoogleG /> {t.googleReview} · <time dateTime={r.date}>{fmt(r.date)}</time>
-                  </div>
-                </article>
-              ))}
-            </div>
-            <p className="reviews-note">
-              <Rich text={t.note} />
-            </p>
-          </>
-        ) : (
-          <div className="rating-hero">
-            <Stars />
-            <strong>5/5</strong>
-            <p>{t.empty}</p>
-          </div>
-        )}
-
-        <div className="center" style={{ marginTop: 22 }}>
-          <a href={googleReviewsUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-sm">
-            <GoogleG /> {t.readAll}
-          </a>
+        <div className="hy-quote-grid">
+          {quotes.map((q, i) => (
+            <figure className="hy-quote" key={q.name} data-reveal style={{ transitionDelay: `${i * 90}ms` }}>
+              <span className="hy-quote-mark" aria-hidden>
+                “
+              </span>
+              <Stars />
+              <blockquote>{q.text}</blockquote>
+              <figcaption>
+                <span className="hy-rv-logo">{q.name.slice(0, 1)}</span>
+                <span>
+                  <strong>{q.name}</strong>
+                  <small>{q.role}</small>
+                </span>
+              </figcaption>
+              <span className="hy-rv-slash" aria-hidden />
+            </figure>
+          ))}
         </div>
       </div>
     </section>

@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import LeadForm from "@/components/LeadForm";
+import PageHero from "@/components/PageHero";
 import WorkGrid from "@/components/WorkGrid";
-import Rich from "@/components/Rich";
-import { CtaBand, ReviewLine, ReviewsSection } from "@/components/Sections";
+import { ReviewsSection } from "@/components/Sections";
+import { ArrowRight } from "@/components/Icons";
 import { getDict, hasLocale, localePath } from "@/lib/i18n";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/werk">): Promise<Metadata> {
@@ -22,37 +23,24 @@ export default async function Werk({ params }: PageProps<"/[lang]/werk">) {
 
   return (
     <>
-      <section>
-        <div className="container werk-hero">
-          <div>
-            <ReviewLine dict={d} />
-            <h1 className="h1">
-              <Rich text={t.title} />
-            </h1>
-            <p className="lead">{t.lead}</p>
-            <div className="btn-row">
-              <Link href={localePath(lang, "/contact")} className="btn btn-navy btn-sm">
-                {d.common.freeAnalysis}
-              </Link>
-              <a href="#reviews" className="btn btn-outline btn-sm">
-                {t.readReviews}
-              </a>
-            </div>
-          </div>
-          <LeadForm dark />
+      <PageHero label={t.metaTitle} title={t.title} lead={t.lead} aside={<LeadForm />}>
+        <div className="btn-row">
+          <Link href={localePath(lang, "/contact")} className="btn btn-orange">
+            {d.common.freeAnalysis} <ArrowRight />
+          </Link>
+          <a href="#reviews" className="btn btn-outline-light">
+            {t.readReviews}
+          </a>
+        </div>
+      </PageHero>
+
+      <ReviewsSection dict={d} lang={lang} light />
+
+      <section className="hy-work">
+        <div className="container">
+          <WorkGrid />
         </div>
       </section>
-
-      <div className="white-area">
-        <section style={{ padding: "60px 0 30px" }}>
-          <div className="container">
-            <WorkGrid />
-          </div>
-        </section>
-        <ReviewsSection dict={d} lang={lang} />
-      </div>
-
-      <CtaBand dict={d} lang={lang} />
     </>
   );
 }

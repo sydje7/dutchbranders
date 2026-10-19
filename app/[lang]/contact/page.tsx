@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ContactForm from "@/components/ContactForm";
-import Rich from "@/components/Rich";
-import { Mail, Phone, Pin } from "@/components/Icons";
+import PageHero from "@/components/PageHero";
+import { ArrowUpRight, Mail, Phone, Pin } from "@/components/Icons";
 import { contact } from "@/lib/data";
 import { getDict, hasLocale } from "@/lib/i18n";
 
@@ -18,57 +18,42 @@ export default async function Contact({ params }: PageProps<"/[lang]/contact">) 
   if (!hasLocale(lang)) notFound();
   const t = getDict(lang).contactPage;
 
+  const lines = [
+    { href: contact.phoneHref, label: t.callLabel, value: contact.phone, icon: <Phone />, ext: false },
+    { href: `mailto:${contact.email}`, label: t.mailLabel, value: contact.email, icon: <Mail />, ext: false },
+    { href: contact.mapsUrl, label: t.visitLabel, value: contact.address, icon: <Pin />, ext: true },
+  ];
+
   return (
     <>
-      <section className="page-hero">
-        <div className="container">
-          <span className="label">{t.label}</span>
-          <h1 className="h-display" style={{ fontWeight: 700 }}>
-            <Rich text={t.title} />
-          </h1>
-          <p className="lead" style={{ marginBottom: 0 }}>
-            {t.lead}
-          </p>
-        </div>
-      </section>
-
-      <section style={{ paddingBottom: 80 }}>
-        <div className="container contact-grid">
-          <ContactForm />
-          <div className="info-stack">
-            <a href={contact.phoneHref} className="info-card">
-              <span className="trust-ico">
-                <Phone />
-              </span>
-              <div>
-                <span className="mono">{t.callLabel}</span>
-                <strong>{contact.phone}</strong>
-              </div>
-            </a>
-            <a href={`mailto:${contact.email}`} className="info-card">
-              <span className="trust-ico">
-                <Mail />
-              </span>
-              <div>
-                <span className="mono">{t.mailLabel}</span>
-                <strong>{contact.email}</strong>
-              </div>
-            </a>
-            <a href={contact.mapsUrl} target="_blank" rel="noopener noreferrer" className="info-card">
-              <span className="trust-ico">
-                <Pin />
-              </span>
-              <div>
-                <span className="mono">{t.visitLabel}</span>
-                <strong>{contact.address}</strong>
-              </div>
-            </a>
-            <div className="info-card navy">
-              <span className="mono">{t.partnerLabel}</span>
+      <PageHero
+        label={t.label}
+        title={t.title}
+        lead={t.lead}
+        aside={
+          <div className="hy-contact-lines">
+            {lines.map((l) => (
+              <a key={l.label} href={l.href} {...(l.ext ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+                <span className="hy-contact-ico">{l.icon}</span>
+                <span>
+                  <small>{l.label}</small>
+                  <strong>{l.value}</strong>
+                </span>
+                <ArrowUpRight />
+              </a>
+            ))}
+            <div className="hy-contact-partner">
+              <small>{t.partnerLabel}</small>
               <strong>{t.partnerTitle}</strong>
-              <p>{t.partnerText}</p>
+              <span>{t.partnerText}</span>
             </div>
           </div>
+        }
+      />
+
+      <section className="pm hy-contact-form">
+        <div className="container">
+          <ContactForm />
         </div>
       </section>
     </>

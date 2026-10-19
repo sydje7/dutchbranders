@@ -20,7 +20,7 @@ export default function WorkGrid() {
   return (
     <div className="werk-wrap">
       <div className="filter-bar">
-        <h3>{t.filter}</h3>
+        <span className="eyebrow">{t.filter}</span>
         <select className="select" value={branche} onChange={(e) => { setBranche(e.target.value); }} aria-label={t.branche}>
           <option value="">{t.selectBranche}</option>
           {branches.map((b) => (
@@ -38,9 +38,9 @@ export default function WorkGrid() {
         </span>
       </div>
 
-      <div className="werk-grid">
-        {filtered.map((x) => (
-          <WorkCard key={x.p.slug} p={x.p} t={x.t} labels={t} />
+      <div className="pm-cases">
+        {filtered.map((x, i) => (
+          <WorkCard key={x.p.slug} p={x.p} t={x.t} labels={t} index={i} />
         ))}
       </div>
 

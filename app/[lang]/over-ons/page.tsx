@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Carousel from "@/components/ProjectCarousel";
+import PageHero from "@/components/PageHero";
 import WorkCard from "@/components/WorkCard";
 import Rich from "@/components/Rich";
-import { Mock } from "@/components/Mockups";
-import { CtaBand, ReviewLine, ReviewsSection } from "@/components/Sections";
-import { CheckCircle, XCircle } from "@/components/Icons";
+import { ReviewsSection } from "@/components/Sections";
+import { ArrowRight, Check } from "@/components/Icons";
 import { projects } from "@/lib/data";
 import { getDict, hasLocale, localePath } from "@/lib/i18n";
 
@@ -17,8 +17,6 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/over-ons">
   return { title: t.metaTitle, description: t.metaDescription };
 }
 
-const statThemes = ["navy", "orange", "", ""];
-
 export default async function OverOns({ params }: PageProps<"/[lang]/over-ons">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
@@ -28,48 +26,30 @@ export default async function OverOns({ params }: PageProps<"/[lang]/over-ons">)
 
   return (
     <>
-      <section>
-        <div className="container about-hero">
-          <div style={{ paddingBottom: 60 }}>
-            <ReviewLine dict={d} />
-            <h1 className="h1">
-              <Rich text={t.title} />
-            </h1>
-            <p className="lead">{t.lead}</p>
-            <div className="btn-row">
-              <Link href={L("/contact")} className="btn btn-navy btn-sm">
-                {d.common.freeAnalysis}
-              </Link>
-              <Link href={L("/werk")} className="btn btn-outline btn-sm">
-                {d.common.viewWork}
-              </Link>
-            </div>
-          </div>
-          <div className="about-phone-wrap">
-            <span className="scribble">
-              <Rich text={t.scribble} />
-            </span>
-            <div className="phone">
-              <div className="screen" style={{ background: "#fff" }}>
-                <Mock id="jb" style={{ fontSize: 6.6, paddingTop: 12 }} />
-              </div>
-            </div>
-          </div>
+      <PageHero label={t.metaTitle} title={t.title} lead={t.lead} shots={["atak", "vanstalen", "cnk"]}>
+        <div className="btn-row">
+          <Link href={L("/contact")} className="btn btn-orange">
+            {d.common.freeAnalysis} <ArrowRight />
+          </Link>
+          <Link href={L("/werk")} className="btn btn-outline-light">
+            {d.common.viewWork}
+          </Link>
         </div>
-      </section>
+      </PageHero>
 
-      <section className="section">
-        <div className="container story">
-          <div>
-            <span className="label">{t.story.label}</span>
-            <h2 className="h2" style={{ fontSize: "clamp(30px, 3.8vw, 44px)" }}>
+      {/* Verhaal + cijfers */}
+      <section className="pm hy-story">
+        <div className="container hy-story-grid">
+          <div data-reveal>
+            <span className="eyebrow">{t.story.label}</span>
+            <h2 className="display">
               <Rich text={t.story.title} />
             </h2>
-            <p className="body">{t.story.text}</p>
+            <p className="pm-text">{t.story.text}</p>
           </div>
-          <div className="stat-grid">
-            {t.story.stats.map((s, i) => (
-              <div className={"stat-tile " + statThemes[i]} key={s.label}>
+          <div className="hy-story-stats" data-reveal>
+            {t.story.stats.map((s) => (
+              <div key={s.label}>
                 <strong>
                   <Rich text={s.value} />
                 </strong>
@@ -80,28 +60,31 @@ export default async function OverOns({ params }: PageProps<"/[lang]/over-ons">)
         </div>
       </section>
 
-      <section style={{ paddingBottom: 100 }}>
+      <ReviewsSection dict={d} lang={lang} light />
+
+      {/* Stappen */}
+      <section className="hy-reviews hy-steps">
         <Carousel
           orange
-          trackClass="steps-track"
+          trackClass="track hy-review-track"
           head={
-            <div>
-              <span className="label">{t.steps.label}</span>
-              <h2 className="h2" style={{ fontSize: "clamp(30px, 3.6vw, 42px)", maxWidth: 520 }}>
+            <div data-reveal>
+              <span className="eyebrow">{t.steps.label}</span>
+              <h2 className="hy-h2" style={{ maxWidth: 620 }}>
                 <Rich text={t.steps.title} />
               </h2>
             </div>
           }
         >
           {t.steps.items.map((s) => (
-            <article className="step-card" key={s.k}>
-              <small>{s.k}</small>
+            <article className="hy-rv hy-step" key={s.k}>
+              <span className="hy-paren">{s.k}</span>
               <h3>{s.t}</h3>
               <p>{s.d}</p>
               <ul>
                 {s.b.map((b) => (
                   <li key={b}>
-                    <CheckCircle /> {b}
+                    <Check /> {b}
                   </li>
                 ))}
               </ul>
@@ -110,32 +93,30 @@ export default async function OverOns({ params }: PageProps<"/[lang]/over-ons">)
         </Carousel>
       </section>
 
-      <section style={{ paddingBottom: 100 }}>
-        <div className="container compare-wrap">
-          <h2 className="h2 center" style={{ fontSize: "clamp(28px, 3.4vw, 40px)" }}>
+      {/* Vergelijking */}
+      <section className="pm hy-compare">
+        <div className="container">
+          <h2 className="display center" data-reveal style={{ maxWidth: 820, margin: "0 auto 56px" }}>
             <Rich text={t.compare.title} />
           </h2>
-          <div className="compare">
-            <div className="compare-card">
+          <div className="hy-compare-grid">
+            <div className="hy-compare-card" data-reveal>
+              <span className="hy-paren">(01)</span>
               <h3>{t.compare.badTitle}</h3>
               <p>{t.compare.badText}</p>
-              <ul>
+              <ul className="hy-lines muted">
                 {t.compare.bad.map((x) => (
-                  <li key={x}>
-                    <XCircle /> {x}
-                  </li>
+                  <li key={x}>{x}</li>
                 ))}
               </ul>
             </div>
-            <div className="compare-card navy">
-              <span className="ribbon">{t.compare.ribbon}</span>
+            <div className="hy-compare-card dark" data-reveal>
+              <span className="hy-paren">(02) {t.compare.ribbon}</span>
               <h3>{t.compare.goodTitle}</h3>
               <p>{t.compare.goodText}</p>
-              <ul>
+              <ul className="hy-lines">
                 {t.compare.good.map((x) => (
-                  <li key={x}>
-                    <CheckCircle /> {x}
-                  </li>
+                  <li key={x}>{x}</li>
                 ))}
               </ul>
             </div>
@@ -143,29 +124,28 @@ export default async function OverOns({ params }: PageProps<"/[lang]/over-ons">)
         </div>
       </section>
 
-      <section style={{ paddingBottom: 100 }}>
+      {/* Projecten */}
+      <section className="hy-work hy-work-carousel">
         <Carousel
           head={
-            <h2 className="h2" style={{ fontSize: "clamp(30px, 3.6vw, 42px)" }}>
+            <h2 className="hy-serif" data-reveal>
               <Rich text={t.projectsTitle} />
             </h2>
           }
         >
-          {projects.map((p) => (
+          {projects.map((p, i) => (
             <WorkCard
               key={p.slug}
               p={p}
               t={d.projects[p.slug as keyof typeof d.projects]}
               labels={d.workPage}
-              style={{ flex: "0 0 min(370px, 82vw)", scrollSnapAlign: "start" }}
+              index={i}
+              style={{ flex: "0 0 min(440px, 84vw)", scrollSnapAlign: "start" }}
             />
           ))}
         </Carousel>
       </section>
 
-
-      <ReviewsSection dict={d} lang={lang} />
-      <CtaBand dict={d} lang={lang} />
     </>
   );
 }

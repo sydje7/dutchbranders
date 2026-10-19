@@ -13,11 +13,20 @@ export default function Header() {
   const t = dict.nav;
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   // Pad zonder taalprefix, bijv. "/werk"
   const base = pathname.replace(/^\/(nl|en)(?=\/|$)/, "") || "/";
 
   useEffect(() => setOpen(false), [pathname]);
+
+  // Na een stukje scrollen wordt de header een zwevende pil
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -37,7 +46,7 @@ export default function Header() {
   const isActive = (p: string) => base === p || base.startsWith(p + "/");
 
   return (
-    <header className="site-header">
+    <header className={"site-header" + (scrolled ? " scrolled" : "") + (open ? " menu-is-open" : "")}>
       <div className="container">
         <Logo />
 

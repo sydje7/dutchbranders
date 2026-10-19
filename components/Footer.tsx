@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import Rich from "./Rich";
-import { LinkedIn, Stars } from "./Icons";
+import { ArrowUpRight, LinkedIn, Stars } from "./Icons";
 import { useI18n } from "./I18n";
 import { contact } from "@/lib/data";
 
@@ -15,6 +15,22 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="container">
+        <div className="footer-pitch">
+          <div>
+            <h2>
+              <Rich text={t.pitch} />
+            </h2>
+            <p>{t.pitchText}</p>
+          </div>
+          <div className="btn-row">
+            <Link href={href("/contact")} className="btn btn-orange">
+              {dict.common.freeAnalysis} <ArrowUpRight />
+            </Link>
+            <a href={contact.phoneHref} className="btn btn-outline-light">
+              {contact.phone}
+            </a>
+          </div>
+        </div>
         <div className="footer-top">
           <div>
             <Logo light />
@@ -56,6 +72,9 @@ export default function Footer() {
           <nav aria-label={t.legalLabel}>
             <Link href={href("/privacy")}>{t.privacy}</Link>
             <Link href={href("/privacy#cookies")}>{t.cookies}</Link>
+            <button type="button" className="to-top" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+              {t.toTop} ↑
+            </button>
           </nav>
         </div>
       </div>

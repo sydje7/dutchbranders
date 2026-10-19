@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import PageHero from "@/components/PageHero";
 import Rich from "@/components/Rich";
-import { CtaBand } from "@/components/Sections";
 import { ArrowRight, ArrowUpRight, Check } from "@/components/Icons";
 import { getDict, hasLocale, localePath } from "@/lib/i18n";
 
@@ -24,25 +24,18 @@ export default async function Diensten({ params }: PageProps<"/[lang]/diensten">
 
   return (
     <>
-      <section className="page-hero">
-        <div className="container">
-          <span className="label">{t.label}</span>
-          <h1 className="h-display" style={{ fontWeight: 700 }}>
-            <Rich text={t.title} />
-          </h1>
-          <p className="lead">{t.lead}</p>
-          <div className="btn-row">
-            <Link href={L("/contact")} className="btn btn-orange">
-              {d.common.freeAnalysis} <ArrowRight />
-            </Link>
-            <Link href={L("/werk")} className="btn btn-white">
-              {d.common.viewWork}
-            </Link>
-          </div>
+      <PageHero label={t.label} title={t.title} lead={t.lead} shots={["firerocket", "enka", "village"]}>
+        <div className="btn-row">
+          <Link href={L("/contact")} className="btn btn-orange">
+            {d.common.freeAnalysis} <ArrowRight />
+          </Link>
+          <Link href={L("/werk")} className="btn btn-outline-light">
+            {d.common.viewWork}
+          </Link>
         </div>
-      </section>
+      </PageHero>
 
-      <section style={{ paddingBottom: 70 }}>
+      <section className="svc-rows-section">
         <div className="container svc-rows">
           {d.services.map((s, i) => {
             const theme = themes[i];
@@ -78,28 +71,29 @@ export default async function Diensten({ params }: PageProps<"/[lang]/diensten">
         </div>
       </section>
 
-      <section style={{ padding: "50px 0 90px" }}>
+      <section className="pm pm-dark hy-process">
         <div className="container">
-          <div className="process">
-            <span className="mono" style={{ fontSize: 10 }}>
-              {t.process.label}
-            </span>
-            <h2 className="h2">{t.process.title}</h2>
-            <div className="process-line" />
-            <div className="process-steps">
-              {t.process.steps.map((p, i) => (
-                <div key={p.t}>
-                  <span className={"n" + (i === 0 ? " on" : "")}>0{i + 1}</span>
-                  <h3>{p.t}</h3>
-                  <p>{p.d}</p>
-                </div>
-              ))}
+          <div className="pm-head" data-reveal>
+            <div>
+              <span className="eyebrow">{t.process.label}</span>
+              <h2 className="display">
+                <Rich text={t.process.title} />
+              </h2>
             </div>
           </div>
+          <ol className="pm-rows">
+            {t.process.steps.map((p, i) => (
+              <li key={p.t} data-reveal>
+                <span className="pm-row-n">{String(i + 1).padStart(2, "0")}</span>
+                <h3>{p.t}</h3>
+                <div>
+                  <p>{p.d}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
-
-      <CtaBand dict={d} lang={lang} />
     </>
   );
 }

@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="Poppins, Arial, sans-serif">
+  <!-- Eigen SEO-illustratie in de huisstijl van Dutch Branders -->
+  <rect width="1400" height="900" fill="#2b2467"/>
+  <circle cx="700" cy="450" r="330" fill="#3b3480" opacity="0.55"/>
+  <circle cx="700" cy="450" r="210" fill="#3b3480" opacity="0.7"/>
+
+  <!-- stippellijnen van laptop naar onderdelen -->
+  <g stroke="#f4f3ef" stroke-width="4" stroke-dasharray="10 12" fill="none" opacity="0.55">
+    <path d="M500 400 H360 V250"/>
+    <path d="M630 300 V200"/>
+    <path d="M770 300 V200"/>
+    <path d="M900 400 H1040 V250"/>
+    <path d="M490 470 H330"/>
+    <path d="M910 470 H1070"/>
+    <path d="M560 580 V680 H430"/>
+    <path d="M840 580 V680 H970"/>
+  </g>
+
+  <!-- laptop -->
+  <rect x="480" y="290" width="440" height="280" rx="18" fill="#f47549"/>
+  <rect x="504" y="314" width="392" height="232" rx="8" fill="#ffffff"/>
+  <text x="700" y="468" text-anchor="middle" font-size="120" font-weight="800" fill="#2b2467" letter-spacing="-4">SEO</text>
+  <path d="M430 580 H970 L940 612 H460 Z" fill="#f8a385"/>
+  <rect x="640" y="580" width="120" height="12" rx="6" fill="#f47549"/>
+
+  <!-- Marketing: megafoon -->
+  <g transform="translate(300 120)">
+    <path d="M10 40 L70 15 V105 L10 80 Z" fill="#f4f3ef"/>
+    <rect x="0" y="38" width="22" height="44" rx="6" fill="#f47549"/>
+    <path d="M22 80 L36 118 H54 L44 84" fill="#f8a385"/>
+    <path d="M90 45 Q102 60 90 75" stroke="#f47549" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <path d="M104 32 Q124 60 104 88" stroke="#f47549" stroke-width="7" fill="none" stroke-linecap="round"/>
+  </g>
+  <text x="360" y="285" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">Marketing</text>
+
+  <!-- Doelgroep: schietschijf -->
+  <g transform="translate(630 120)">
+    <circle cx="0" cy="0" r="56" fill="#f47549"/>
+    <circle cx="0" cy="0" r="38" fill="#f4f3ef"/>
+    <circle cx="0" cy="0" r="20" fill="#f47549"/>
+    <path d="M-70 -50 L-4 -4" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+    <path d="M-78 -58 l14 2 -2 14" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round"/>
+  </g>
+  <text x="630" y="225" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">Doelgroep</text>
+
+  <!-- Links: pijlen -->
+  <g transform="translate(710 80)" fill="none" stroke-width="16" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M60 10 L20 40 L60 70" stroke="#f4f3ef"/>
+    <path d="M100 10 L60 40 L100 70" stroke="#f8a385"/>
+    <path d="M140 10 L100 40 L140 70" stroke="#f47549"/>
+  </g>
+  <text x="790" y="225" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">Links</text>
+
+  <!-- Content: video en foto -->
+  <g transform="translate(975 100)">
+    <rect x="0" y="10" width="110" height="80" rx="10" fill="#f8a385"/>
+    <path d="M42 34 L70 50 L42 66 Z" fill="#2b2467"/>
+    <rect x="60" y="40" width="96" height="90" rx="8" fill="#f4f3ef" transform="rotate(10 108 85)"/>
+    <path d="M78 116 L102 88 L120 104 L132 92 L150 118 Z" fill="#f47549" transform="rotate(10 108 85)"/>
+    <circle cx="128" cy="66" r="9" fill="#f47549" transform="rotate(10 108 85)"/>
+  </g>
+  <text x="1040" y="285" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">Content</text>
+
+  <!-- www: wereldbol -->
+  <g transform="translate(240 470)" fill="none" stroke-width="7">
+    <circle cx="0" cy="0" r="58" stroke="#f4f3ef"/>
+    <ellipse cx="0" cy="0" rx="24" ry="58" stroke="#f47549"/>
+    <path d="M-58 0 H58 M-50 -28 H50 M-50 28 H50" stroke="#f4f3ef"/>
+  </g>
+  <text x="240" y="570" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">www</text>
+
+  <!-- Zoeken: vergrootglas -->
+  <g transform="translate(1160 460)">
+    <circle cx="0" cy="0" r="46" fill="#f4f3ef" stroke="#f47549" stroke-width="12"/>
+    <path d="M34 34 L74 74" stroke="#f47549" stroke-width="18" stroke-linecap="round"/>
+  </g>
+  <text x="1160" y="575" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">Zoeken</text>
+
+  <!-- Prestaties: grafiek -->
+  <g transform="translate(300 640)">
+    <path d="M0 0 V110 H150" stroke="#f4f3ef" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <rect x="18" y="66" width="22" height="40" rx="3" fill="#f8a385"/>
+    <rect x="52" y="44" width="22" height="62" rx="3" fill="#f47549"/>
+    <rect x="86" y="24" width="22" height="82" rx="3" fill="#f8a385"/>
+    <rect x="120" y="4" width="22" height="102" rx="3" fill="#ffffff"/>
+  </g>
+  <text x="375" y="800" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">Prestaties</text>
+
+  <!-- Ranking: ster -->
+  <g transform="translate(1030 690)">
+    <path d="M0 -62 L18 -20 L62 -18 L28 10 L40 54 L0 30 L-40 54 L-28 10 L-62 -18 L-18 -20 Z" fill="#f5b80b"/>
+  </g>
+  <text x="1030" y="800" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">#1 in Google</text>
+</svg>

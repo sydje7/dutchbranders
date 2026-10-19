@@ -36,3 +36,12 @@ export const reviews: { name: string; date: string; stars: number; text: string 
 
 export const googleReviewsUrl =
   "https://www.google.com/maps/place/data=!4m2!3m1!1s0x47c5e3b905585495:0x7416b8aba98b1faf";
+
+/* Beeld per dienst (Unsplash-foto's, vrij te gebruiken, of eigen werk) */
+export const serviceImages: Record<string, string> = {
+  webdesign: "/diensten/webdesign.jpg",
+  seo: "/diensten/seo.svg",
+  "google-ads": "/diensten/google-ads.jpg",
+  statistieken: "/diensten/statistieken.jpg",
+  huisstijl: "/klanten/lust109.jpg",
+};
