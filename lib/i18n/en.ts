@@ -209,15 +209,6 @@ const en: Dict = {
     badge: "Your partner in digital growth",
     title: "Digital *growth* for businesses with *ambition*.",
     lead: "Website, findability and advertising working together towards one goal: more customers for your business. We're the online marketing department you didn't have yet.",
-    scribble: "We worked on these.\nIs your business next?",
-    heroTags: {
-      denk: "Political party · Website",
-      vanstalen: "Car garage · Website",
-      dentville: "Dental practice · Website",
-      bkp: "Workwear · Webshop",
-      atak: "Timber construction · Website",
-      firerocket: "Patio heaters · Webshop",
-    },
     logosLabel: "Businesses that went before you",
     bento: {
       title: "For business owners who want to *grow*",

@@ -8,19 +8,10 @@ import LogoMarquee from "@/components/LogoMarquee";
 import LeadForm from "@/components/LeadForm";
 import Rich from "@/components/Rich";
 import { ReviewLine } from "@/components/Sections";
-import { ArrowUpRight, Crown, GoogleG, ScribbleArrow, Stars } from "@/components/Icons";
+import { ArrowUpRight, Crown, GoogleG, Stars } from "@/components/Icons";
 import { contact, googleReviewsUrl, projects } from "@/lib/data";
 import { getDict, hasLocale, localePath } from "@/lib/i18n";
 
-/* Echte klantwebsites (screenshots in /public/klanten) */
-const heroProjects = [
-  { id: "denk", name: "DENK", url: "https://denk.nl/" },
-  { id: "vanstalen", name: "Autobedrijf van Stalen", url: "https://autobedrijfvanstalen.nl/" },
-  { id: "dentville", name: "Dentville", url: "https://dentville.nl/" },
-  { id: "bkp", name: "BedrijfskledingPlaza", url: "https://bedrijfskledingplaza.nl/" },
-  { id: "atak", name: "Atak Houtbouw", url: "https://www.atakhoutbouw.nl/" },
-  { id: "firerocket", name: "FireRocket", url: "https://firerocket.nl/" },
-] as const;
 
 /* Lijniconen rond de cirkel in het bento-blok */
 const ico = (d: string) => (
@@ -69,26 +60,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <ReviewLine dict={d} />
         </div>
 
-        <Carousel
-          head={
-            <div className="scribble">
-              <Rich text={h.scribble} />
-              <ScribbleArrow />
-            </div>
-          }
-        >
-          {heroProjects.map((p) => (
-            <a href={p.url} target="_blank" rel="noopener noreferrer" className="project-card" key={p.id}>
-              <img src={`/klanten/${p.id}.jpg`} alt={`Website van ${p.name}`} loading="lazy" decoding="async" className="shot" />
-              <div className="caption">
-                <strong>{p.name}</strong>
-                <span>{h.heroTags[p.id]}</span>
-              </div>
-            </a>
-          ))}
-        </Carousel>
-
-        <div className="container">
+        <div className="container hero-logos">
           <LogoMarquee label={h.logosLabel} />
         </div>
       </section>

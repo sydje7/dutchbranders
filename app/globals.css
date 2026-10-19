@@ -6778,3 +6778,15 @@ i {
   font-weight: 600;
   line-height: 1.3;
 }
+
+/* Hero zonder carrousel: wat ruimte boven de logo-band */
+.hero-logos {
+  margin-top: 70px;
+  padding-bottom: 20px;
+}
+
+@media (max-width: 760px) {
+  .hero-logos {
+    margin-top: 44px;
+  }
+}

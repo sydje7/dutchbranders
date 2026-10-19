@@ -221,15 +221,6 @@ const nl = {
     badge: "Jouw partner in digitale groei",
     title: "Digitale *groei* voor ondernemers met *ambitie*.",
     lead: "Website, vindbaarheid en advertenties die samenwerken aan één doel: meer klanten voor jouw bedrijf. Wij zijn de online marketingafdeling die je nog niet had.",
-    scribble: "Hier werkten we aan.\nJouw bedrijf de volgende?",
-    heroTags: {
-      denk: "Politieke partij · Website",
-      vanstalen: "Autobedrijf · Website",
-      dentville: "Tandartspraktijk · Website",
-      bkp: "Bedrijfskleding · Webshop",
-      atak: "Houtbouw · Website",
-      firerocket: "Terrasverwarming · Webshop",
-    },
     logosLabel: "Ondernemers die ons voorgingen",
     bento: {
       title: "Voor ondernemers die willen *groeien*",
