@@ -6791,49 +6791,64 @@ i {
   }
 }
 
-/* Paginakop: klantwebsites om doorheen te scrollen */
-.hy-show {
+/* Paginakop: klantwebsites als stapel kaarten die tijdens het scrollen wisselen */
+.hy-hero {
+  overflow: hidden;
+  overflow: clip; /* clip i.p.v. hidden, zodat de plakkende kop blijft werken */
+}
+
+@media (min-width: 1025px) {
+  .hy-hero.has-stack {
+    height: calc(100vh + 150vh);
+    padding: 0;
+  }
+
+  .hy-hero.has-stack .hy-hero-sticky {
+    position: sticky;
+    top: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 70px 0 40px;
+  }
+
+  .hy-hero.has-stack .hy-hero-grid {
+    width: 100%;
+  }
+}
+
+.hy-stack {
   min-width: 0;
 }
 
-.hy-show-track {
-  display: flex;
-  gap: 14px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  padding-right: 22%;
-  -webkit-mask-image: linear-gradient(90deg, #000 76%, transparent);
-  mask-image: linear-gradient(90deg, #000 76%, transparent);
-}
-
-.hy-show-track::-webkit-scrollbar {
-  display: none;
-}
-
-.hy-show-card {
+.hy-stack-deck {
   position: relative;
-  flex: 0 0 82%;
-  scroll-snap-align: start;
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 16 / 13.5;
+  margin: 60px auto 0;
+}
+
+.hy-stack-card {
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
   background: #fff;
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 30px 60px -28px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 30px 60px -26px rgba(0, 0, 0, 0.8);
+  transform-origin: center top;
+  transition: transform 0.7s cubic-bezier(0.16, 0.8, 0.24, 1), opacity 0.45s ease;
+  will-change: transform, opacity;
 }
 
-.hy-show-card img {
-  display: block;
+.hy-stack-card img {
+  flex: 1;
+  min-height: 0;
   width: 100%;
-  aspect-ratio: 16 / 11;
   object-fit: cover;
   object-position: top;
-  transition: object-position 3s ease;
-}
-
-.hy-show-card:hover img {
-  object-position: bottom;
 }
 
 .hy-show-cap {
@@ -6855,18 +6870,25 @@ i {
   color: rgba(20, 18, 43, 0.6);
 }
 
-.hy-show-cap svg {
-  flex: none;
-  width: 16px;
-  height: 16px;
-}
-
-.hy-show-nav {
+.hy-stack-nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-top: 20px;
-  padding-right: 4px;
+  justify-content: center;
+  gap: 16px;
+  max-width: 520px;
+  margin: 26px auto 0;
+}
+
+.hy-stack-nav .svc-dashes {
+  margin: 0;
+}
+
+.hy-stack-nav .svc-dashes i {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.hy-stack-nav .svc-dashes i.on {
+  background: var(--orange);
 }
 
 .hy-show-count {
@@ -6876,31 +6898,9 @@ i {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.hy-show-btns {
-  display: flex;
-  gap: 8px;
-}
-
-.hy-show-btns .round-btn {
-  width: 46px;
-  height: 46px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.hy-show-btns .round-btn.orange {
-  background: var(--orange);
-  border-color: var(--orange);
-  color: var(--ink);
-}
-
-@media (max-width: 760px) {
-  .hy-show-card {
-    flex-basis: 86%;
-  }
-
-  .hy-show-track {
-    padding-right: 14%;
+@media (max-width: 1024px) {
+  .hy-stack-deck {
+    margin-top: 110px;
   }
 }
 
