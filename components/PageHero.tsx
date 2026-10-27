@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+import HeroShowcase from "./HeroShowcase";
 import Rich from "./Rich";
 
 /* Donkere paginakop in de stijl van de homepage, met rechts klantwebsites of eigen inhoud */
@@ -29,13 +29,7 @@ export default function PageHero({
           {children}
         </div>
         <div className="hy-hero-aside">
-          {aside ?? (
-            <div className="hy-hero-shots" aria-hidden>
-              {shots.map((id) => (
-                <img key={id} src={`/klanten/${id}.jpg`} alt="" loading="eager" decoding="async" />
-              ))}
-            </div>
-          )}
+          {aside ?? <HeroShowcase first={shots} />}
         </div>
       </div>
     </section>

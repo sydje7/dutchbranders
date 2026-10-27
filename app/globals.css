@@ -6791,45 +6791,127 @@ i {
   }
 }
 
-/* Paginakop: drie klantwebsites strak naast elkaar, niet over elkaar heen */
-.hy-hero-shots {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+/* Paginakop: klantwebsites om doorheen te scrollen */
+.hy-show {
+  min-width: 0;
+}
+
+.hy-show-track {
+  display: flex;
   gap: 14px;
-  height: auto;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-right: 22%;
+  -webkit-mask-image: linear-gradient(90deg, #000 76%, transparent);
+  mask-image: linear-gradient(90deg, #000 76%, transparent);
 }
 
-.hy-hero-shots img,
-.hy-hero-shots img:nth-child(1),
-.hy-hero-shots img:nth-child(2),
-.hy-hero-shots img:nth-child(3) {
-  position: static;
+.hy-show-track::-webkit-scrollbar {
+  display: none;
+}
+
+.hy-show-card {
+  position: relative;
+  flex: 0 0 82%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -28px rgba(0, 0, 0, 0.75);
+}
+
+.hy-show-card img {
+  display: block;
   width: 100%;
-  aspect-ratio: 3 / 5;
-  transform: none;
-  animation: none;
-  border-radius: 14px;
-  box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.7);
+  aspect-ratio: 16 / 11;
+  object-fit: cover;
+  object-position: top;
+  transition: object-position 3s ease;
 }
 
-.hy-hero-shots img:nth-child(2) {
-  margin-top: 36px;
+.hy-show-card:hover img {
+  object-position: bottom;
 }
 
-@media (max-width: 1024px) {
-  .hy-hero-shots {
-    height: auto;
-    max-width: 560px;
-  }
+.hy-show-cap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  color: var(--ink);
+}
+
+.hy-show-cap strong {
+  display: block;
+  font-size: 16px;
+}
+
+.hy-show-cap small {
+  font-size: 13px;
+  color: rgba(20, 18, 43, 0.6);
+}
+
+.hy-show-cap svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+
+.hy-show-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-right: 4px;
+}
+
+.hy-show-count {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.hy-show-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.hy-show-btns .round-btn {
+  width: 46px;
+  height: 46px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hy-show-btns .round-btn.orange {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--ink);
 }
 
 @media (max-width: 760px) {
-  .hy-hero-shots {
-    height: auto;
-    gap: 10px;
+  .hy-show-card {
+    flex-basis: 86%;
   }
 
-  .hy-hero-shots img:nth-child(2) {
-    margin-top: 22px;
+  .hy-show-track {
+    padding-right: 14%;
+  }
+}
+
+/* Kolommen van de paginakop nooit breder laten worden dan het scherm */
+.hy-hero-text,
+.hy-hero-aside {
+  min-width: 0;
+}
+
+@media (max-width: 1024px) {
+  .hy-hero-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
