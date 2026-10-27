@@ -6790,3 +6790,46 @@ i {
     margin-top: 44px;
   }
 }
+
+/* Paginakop: drie klantwebsites strak naast elkaar, niet over elkaar heen */
+.hy-hero-shots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  height: auto;
+}
+
+.hy-hero-shots img,
+.hy-hero-shots img:nth-child(1),
+.hy-hero-shots img:nth-child(2),
+.hy-hero-shots img:nth-child(3) {
+  position: static;
+  width: 100%;
+  aspect-ratio: 3 / 5;
+  transform: none;
+  animation: none;
+  border-radius: 14px;
+  box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.7);
+}
+
+.hy-hero-shots img:nth-child(2) {
+  margin-top: 36px;
+}
+
+@media (max-width: 1024px) {
+  .hy-hero-shots {
+    height: auto;
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 760px) {
+  .hy-hero-shots {
+    height: auto;
+    gap: 10px;
+  }
+
+  .hy-hero-shots img:nth-child(2) {
+    margin-top: 22px;
+  }
+}
