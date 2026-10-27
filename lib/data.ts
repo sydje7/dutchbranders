@@ -4,8 +4,6 @@ export const contact = {
   email: "info@dutchbranders.nl",
   address: "Handelweg 12H, 1521 NH Wormerveer",
   mapsUrl: "https://www.google.com/maps/place/data=!4m2!3m1!1s0x47c5e3b905585495:0x7416b8aba98b1faf",
-  kvk: "81843895",
-  btw: "NL864519886B01",
   linkedin: "https://www.linkedin.com/company/dutchbranders/",
 };
 

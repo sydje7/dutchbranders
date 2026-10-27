@@ -48,8 +48,6 @@ const nl = {
     legalLabel: "Juridisch",
     privacy: "Privacy",
     cookies: "Cookies",
-    vat: "BTW",
-    coc: "KvK",
     pitch: "Klaar om *online te groeien*?",
     pitchText: "Vraag een gratis analyse aan of bel ons even. We denken graag met je mee.",
     toTop: "Naar boven",
@@ -425,7 +423,7 @@ const nl = {
     sections: [
       {
         h: "Wie zijn wij?",
-        p: ["Dutch Branders, Handelweg 12H, 1521 NH Wormerveer, KvK 81843895. Dutch Branders gaat zorgvuldig om met je persoonsgegevens. Onder persoonsgegevens verstaan we informatie die herleidbaar is tot een persoon, zoals een naam, huisadres of e-mailadres. De bescherming van deze gegevens is geregeld in de Algemene Verordening Gegevensbescherming (AVG)."],
+        p: ["Dutch Branders, Handelweg 12H, 1521 NH Wormerveer. Dutch Branders gaat zorgvuldig om met je persoonsgegevens. Onder persoonsgegevens verstaan we informatie die herleidbaar is tot een persoon, zoals een naam, huisadres of e-mailadres. De bescherming van deze gegevens is geregeld in de Algemene Verordening Gegevensbescherming (AVG)."],
       },
       {
         h: "Welke gegevens verwerken we?",

@@ -55,7 +55,6 @@ export default function Footer() {
               <li><a href={`mailto:${contact.email}`}>{contact.email}</a></li>
               <li><a href={contact.phoneHref}>{contact.phone}</a></li>
               <li><a href={contact.mapsUrl} target="_blank" rel="noopener noreferrer">{contact.address}</a></li>
-              <li>{t.coc} {contact.kvk}</li>
             </ul>
           </div>
           <div>
@@ -67,7 +66,7 @@ export default function Footer() {
         </div>
         <div className="footer-bottom">
           <span>
-            © {new Date().getFullYear()} Dutch Branders · {t.coc} {contact.kvk} · {t.vat} {contact.btw}
+            © {new Date().getFullYear()} Dutch Branders
           </span>
           <nav aria-label={t.legalLabel}>
             <Link href={href("/privacy")}>{t.privacy}</Link>

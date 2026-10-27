@@ -47,8 +47,6 @@ const en: Dict = {
     legalLabel: "Legal",
     privacy: "Privacy",
     cookies: "Cookies",
-    vat: "VAT",
-    coc: "CoC",
     pitch: "Ready to *grow online*?",
     pitchText: "Request a free analysis or give us a call. We're happy to think along with you.",
     toTop: "Back to top",
@@ -413,7 +411,7 @@ const en: Dict = {
     sections: [
       {
         h: "Who are we?",
-        p: ["Dutch Branders, Handelweg 12H, 1521 NH Wormerveer, the Netherlands, Chamber of Commerce no. 81843895. Dutch Branders handles your personal data with care. Personal data is information that can be traced back to a person, such as a name, home address or email address. The protection of this data is governed by the General Data Protection Regulation (GDPR)."],
+        p: ["Dutch Branders, Handelweg 12H, 1521 NH Wormerveer, the Netherlands. Dutch Branders handles your personal data with care. Personal data is information that can be traced back to a person, such as a name, home address or email address. The protection of this data is governed by the General Data Protection Regulation (GDPR)."],
       },
       {
         h: "What data do we process?",
