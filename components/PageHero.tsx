@@ -1,4 +1,4 @@
-import HeroShowcase from "./HeroShowcase";
+import HeroStack from "./HeroStack";
 import Rich from "./Rich";
 
 /* Donkere paginakop in de stijl van de homepage, met rechts klantwebsites of eigen inhoud */
@@ -18,18 +18,20 @@ export default function PageHero({
   shots?: string[];
 }) {
   return (
-    <section className="hy-hero">
-      <div className="container hy-hero-grid">
-        <div className="hy-hero-text">
-          {label && <span className="eyebrow">{label}</span>}
-          <h1 className="display display-xl">
-            <Rich text={title} />
-          </h1>
-          {lead && <p className="hy-hero-lead">{lead}</p>}
-          {children}
-        </div>
-        <div className="hy-hero-aside">
-          {aside ?? <HeroShowcase first={shots} />}
+    <section className={"hy-hero" + (aside ? "" : " has-stack")}>
+      <div className="hy-hero-sticky">
+        <div className="container hy-hero-grid">
+          <div className="hy-hero-text">
+            {label && <span className="eyebrow">{label}</span>}
+            <h1 className="display display-xl">
+              <Rich text={title} />
+            </h1>
+            {lead && <p className="hy-hero-lead">{lead}</p>}
+            {children}
+          </div>
+          <div className="hy-hero-aside">
+            {aside ?? <HeroStack first={shots} />}
+          </div>
         </div>
       </div>
     </section>
